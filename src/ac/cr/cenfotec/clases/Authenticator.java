@@ -8,13 +8,12 @@ import java.util.ArrayList;
 public class Authenticator {
 	private int userState = 1;
 	private String authenticatorMensaje;
-	private ArrayList<User> usersList = new ArrayList<User>();
 	private boolean authenticated;
 	
 	
-	public boolean validateCredencials (String userName, String password) {
+	public boolean validateCredencials (String userName, String password, ArrayList<User> registeredUsers) {
 		boolean authenticated = false;
-		ArrayList<User> userList = getRegiteredUsers();
+		ArrayList<User> userList = registeredUsers;
 		
 		try {
 			for (int i = 0; i < userList.size(); i++) {
@@ -34,18 +33,7 @@ public class Authenticator {
 		
 		return authenticated;
 	}
-	
-	public ArrayList<User> getRegiteredUsers () {
-		ArrayList<User> adminList = new ArrayList<User>();
-		User newAdmin = new User("Eduardo","Martinez", 01, "abc123", "eduMar", 0);
-		User newEmployee = new User("Carlos","Garro", 02, "abc123", "carGa", 1);
-		adminList.add(newAdmin);
-		adminList.add(newEmployee);
-		return adminList;
-	}
-	
-	
-	
+		
 	/**
 	 * @return the authenticated
 	 */
@@ -84,21 +72,6 @@ public class Authenticator {
 	public void setAuthenticatorMensaje(String authenticatorMensaje) {
 		this.authenticatorMensaje = authenticatorMensaje;
 	}
-	/**
-	 * @return the usersList
-	 */
-	public ArrayList<User> getUsersList() {
-		return usersList;
-	}
-	/**
-	 * @param usersList the usersList to set
-	 */
-	public void setUsersList(ArrayList<User> usersList) {
-		this.usersList = usersList;
-	}
-	
-	
-	
 
 }
 

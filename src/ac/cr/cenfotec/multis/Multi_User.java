@@ -2,11 +2,13 @@
  * 
  */
 package ac.cr.cenfotec.multis;
+import ac.cr.cenfotec.clases.User;
 
-/**
- * @author Olman
- *
- */
 public class Multi_User {
 
+	
+	public User getUserByUserName (String userName) 
+	{
+		return null;
+	}
 }
