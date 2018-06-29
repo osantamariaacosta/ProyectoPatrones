@@ -11,10 +11,12 @@ import ac.cr.cenfotec.multis.Multi_User;
 
 
 public class Authenticator_Manager {
+	
 	private Authenticator authenticator = new Authenticator();
 	private UserAuthenticated userAuthenticated = new UserAuthenticated();
 	private ArrayList<User> usersList = new ArrayList<User>();
 	private Multi_User multiUser = new Multi_User();
+	
 	
 	public boolean validateCredentials (String userName, String password) throws Exception 
 	{
@@ -37,10 +39,12 @@ public class Authenticator_Manager {
 		return isAuthenticated;
 	}
 	
+	
 	public UserAuthenticated getUserAutenticated () 
 	{
 		return this.userAuthenticated;
 	}
+	
 	
 	private void setUserAuthenticated (boolean isAuthenticated, String userName) throws Exception
 	{
@@ -70,6 +74,7 @@ public class Authenticator_Manager {
 		}
 		
 	}
+	
 	
 	public ArrayList<User> getUsers () {
 		ArrayList<User> adminList = new ArrayList<User>();
