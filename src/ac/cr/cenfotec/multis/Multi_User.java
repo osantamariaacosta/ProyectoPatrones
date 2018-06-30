@@ -35,5 +35,21 @@ public class Multi_User {
 		return foundedUser;
 	}
 	
+	public void registerEmployee(String name, String lastName, int id, String password, String userName, int userType) {
+		
+		String query;
+		query = "Insert Into Employee (name, lastName, id, password, userName, userType) VALUES ('" + name + "','" + lastName + "','"
+				+ id + "','" + password + "','" + userName + "','" + userType + "')";
+		
+		try {
+			AccesoBD accesoDatos;
+			accesoDatos = Conector.gestConecor();
+			accesoDatos.ejecutarSQL(query);
+		}catch (Exception e) {
+			
+		}
+	}
+		
+	
 	
 }

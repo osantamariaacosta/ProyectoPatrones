@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import ac.cr.cenfotec.gestores.*;
 
 //Manager imports
 import ac.cr.cenfotec.managers.Authenticator_Manager;
@@ -193,6 +194,7 @@ public class ProyectUI {
 				break;
 				
 			case 2: 
+				registerEmployee();
 				break;
 			
 			case 3:
@@ -247,7 +249,40 @@ public class ProyectUI {
 	    {
 	        //  Handle any exceptions.
 	    }
-	}	
+	}
+	
+	public static void registerEmployee() throws IOException, Exception{
+		 String name;
+		 String lastName;
+		 int id;
+		 String password; 
+		 String userName;
+		 int userType;
+		 
+		 out.println("Digite el nombre del empleado");
+		 name = in.readLine();
+		 out.println("Digite el apellido");
+		 lastName = in.readLine();
+		 out.println("Digite el numero de indentificación");
+		 id = Integer.parseInt(in.readLine());
+		 out.println("Digite una contraseña temporal para el usuario");
+		 password = in.readLine();
+		 out.println("Digite un nombre de usuario");
+		 userName = in.readLine();
+		 out.println("Digite el tipo de usuario");
+		 userType = Integer.parseInt(in.readLine());
+		 
+		 GestorUser gestor = new GestorUser();
+	        try {
+	            gestor.registerEmployee(name, lastName, id, password, userName, userType);
+	        } catch (java.lang.ClassNotFoundException e) {
+	            out.println(e.getMessage());
+	        } catch (SQLException e) {
+	            out.println(e.getMessage());
+	            out.println(e.getErrorCode());
+	        }
+	        
+		 }
 	
 	
 }
