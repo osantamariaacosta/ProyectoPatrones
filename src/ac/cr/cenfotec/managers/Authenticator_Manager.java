@@ -75,6 +75,11 @@ public class Authenticator_Manager {
 		
 	}
 	
+	public void clearUserAuthenticated ()
+	{
+		userAuthenticated = null;
+	}
+	
 	
 	public ArrayList<User> getUsers () {
 		ArrayList<User> adminList = new ArrayList<User>();
