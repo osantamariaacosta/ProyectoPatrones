@@ -4,7 +4,10 @@
 package ac.cr.cenfotec.multis;
 import java.util.ArrayList;
 
+
 import ac.cr.cenfotec.clases.User;
+import ac.cr.cenfotec.clases.Employee;
+
 
 public class Multi_User {
 
@@ -49,6 +52,36 @@ public class Multi_User {
 			
 		}
 	}
+	
+	 public ArrayList<Employee> listarEmpleado() throws ClassNotFoundException, SQLException, Exception {
+	        ArrayList<Employee> lista = new ArrayList<>();
+
+	        String query;
+	        query = "'";
+
+	        try {
+	            AccesoBD accesoDatos;
+	            accesoDatos = Conector.getConector();
+	            ResultSet rs = accesoDatos.ejecutarSql(query);
+	            while (rs.next()) {
+	                Employee tmpEmpleado = new Employee();
+
+	                tmpEmpleado.setName(rs.getString("name"));
+	                tmpEmpleado.setLastName(rs.getString("lastName"));
+	                tmpEmpleado.setId(rs.getInt("id"));
+	                tmpEmpleado.setCompany(rs.getString("company"));
+	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));
+	                
+
+	                lista.add(tmpEmpleado);
+	            }
+
+	            return lista;
+	        } catch (java.lang.ClassNotFoundException e) {
+	            throw e;
+	        }
+
+	    }
 		
 	
 	

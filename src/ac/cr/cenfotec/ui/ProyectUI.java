@@ -118,7 +118,8 @@ public class ProyectUI {
 		out.println("4.Registrar tarea");
 		out.println("5.Modificar tarea");
 		out.println("6.Ver historial de tareas");
-		out.println("7.Cerrar Sesi\u00f3n");
+		out.println("7.Listar empleados");
+		out.println("8.Cerrar Sesi\u00f3n");
 	}
 	
 	public static void showUserMenu() 
@@ -210,6 +211,9 @@ public class ProyectUI {
 				break;
 				
 			case 7:
+				listarEmpleado(); 
+				break;
+			case 8:
 				closeSession(); 
 				break;
 			
@@ -283,6 +287,31 @@ public class ProyectUI {
 	        }
 	        
 		 }
+	
+	public static void listarEmpleado() throws IOException, Exception{
+		GestorUser gestor = new GestorUser();
+		
+		ArrayList<Employee> lista;
+		
+		lista = gestor.listarEmpleado(Employee);
+		
+		String name; 
+		String lastName;
+		int id; 
+		int company;
+		int departamentId;
+		
+		for(int i = 0; i <lista.size(); i++) {
+			name = lista.get(i).getName;
+			lastName = lista.get(i).getLastName;
+			id = lista.get(i).getId;
+			company = lista.get(i).getCompany;
+			departamentId = lista.get(i).getDepartamentId;
+			
+			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
+		}
+		
+	}
 	
 	
 }
