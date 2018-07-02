@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.User;
 import ac.cr.cenfotec.clases.Employee;
+import accesoDatos;
 
 
 public class Multi_User {
@@ -53,7 +54,7 @@ public class Multi_User {
 		}
 	}
 	
-	 public ArrayList<Employee> listarEmpleado() throws ClassNotFoundException, SQLException, Exception {
+	 public ArrayList<Employee> listarEmpleado() throws ClassNotFoundException, java.sql.SQLException, Exception {
 	        ArrayList<Employee> lista = new ArrayList<>();
 
 	        String query;
