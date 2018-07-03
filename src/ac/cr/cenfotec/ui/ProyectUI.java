@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import ac.cr.cenfotec.gestores.*;
+import java.sql.SQLException;
+import ac.cr.cenfotec.clases.Employee;
+import java.util.ArrayList;
 
 //Manager imports
 import ac.cr.cenfotec.managers.Authenticator_Manager;
@@ -293,7 +296,7 @@ public class ProyectUI {
 		
 		ArrayList<Employee> lista;
 		
-		lista = gestor.listarEmpleado(Employee);
+		lista = gestor.listarEmpleado();
 		
 		String name; 
 		String lastName;
@@ -302,15 +305,15 @@ public class ProyectUI {
 		int departamentId;
 		
 		for(int i = 0; i <lista.size(); i++) {
-			name = lista.get(i).getName;
-			lastName = lista.get(i).getLastName;
-			id = lista.get(i).getId;
-			company = lista.get(i).getCompany;
-			departamentId = lista.get(i).getDepartamentId;
+			name = lista.get(i).getName();
+			lastName = lista.get(i).getLastName();
+			id = lista.get(i).getId();
+			company = lista.get(i).getCompany();
+			departamentId = lista.get(i).getDepartamentId();
 			
 			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
 		}
-		
+	
 	}
 	
 	
