@@ -78,7 +78,7 @@ public class Multi_User {
 	                tmpEmpleado.setId(rs.getInt("id"));
 	                tmpEmpleado.setCompany(rs.getString("company"));
 	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));*/
-	                lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
+	              	lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
 	        	return lista;
 	        } catch (Exception error) {
 	            System.out.println(error);

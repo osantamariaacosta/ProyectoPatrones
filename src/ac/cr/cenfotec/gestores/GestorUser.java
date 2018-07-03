@@ -8,14 +8,21 @@ import java.sql.SQLException;
 public class GestorUser {
 	Multi_User multi = new Multi_User();
 
-	public boolean registerEmployee(String name, String lastName, int id, String password, String userName, int userType) 
-			throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception
+	public boolean  registerEmployee(String name, String lastName, int id, String password, String userName, int userType) 
+			throws Exception
 	{	
 		boolean isRegistered;
+		try {
 		
-	    isRegistered = multi.registerEmployee(name, lastName, id, password, userName, userType);
-	    
-	    return isRegistered;
+			isRegistered = multi.registerEmployee(name, lastName, id, password, userName, userType);
+			return isRegistered;
+			
+		} catch (Exception error) {
+			System.out.println(error);
+			System.out.println(error.getMessage());
+			isRegistered = false;
+			return false;
+		}
 	}
 	
 	public ArrayList<Employee> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
