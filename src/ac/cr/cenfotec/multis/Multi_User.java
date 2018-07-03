@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.User;
 import ac.cr.cenfotec.clases.Employee;
-import accesoDatos;
 
 
 public class Multi_User {
@@ -39,28 +38,35 @@ public class Multi_User {
 		return foundedUser;
 	}
 	
-	public void registerEmployee(String name, String lastName, int id, String password, String userName, int userType) {
+	public boolean registerEmployee(String name, String lastName, int id, String password, String userName, int userType)
+	{
 		
 		String query;
 		query = "Insert Into Employee (name, lastName, id, password, userName, userType) VALUES ('" + name + "','" + lastName + "','"
 				+ id + "','" + password + "','" + userName + "','" + userType + "')";
 		
 		try {
+			/*
 			AccesoBD accesoDatos;
 			accesoDatos = Conector.gestConecor();
-			accesoDatos.ejecutarSQL(query);
-		}catch (Exception e) {
-			
+			accesoDatos.ejecutarSQL(query);*/
+			return true;
+		}catch (Exception error) {
+			System.out.println(error);
+			System.out.println(error.getMessage());
+			return false;
 		}
 	}
 	
-	 public ArrayList<Employee> listarEmpleado() throws ClassNotFoundException, java.sql.SQLException, Exception {
+	 public ArrayList<Employee> listarEmpleado() throws Exception 
+	 {
 	        ArrayList<Employee> lista = new ArrayList<>();
 
 	        String query;
 	        query = "'";
 
 	        try {
+	        	/*
 	            AccesoBD accesoDatos;
 	            accesoDatos = Conector.getConector();
 	            ResultSet rs = accesoDatos.ejecutarSql(query);
@@ -71,15 +77,13 @@ public class Multi_User {
 	                tmpEmpleado.setLastName(rs.getString("lastName"));
 	                tmpEmpleado.setId(rs.getInt("id"));
 	                tmpEmpleado.setCompany(rs.getString("company"));
-	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));
-	                
-
-	                lista.add(tmpEmpleado);
-	            }
-
-	            return lista;
-	        } catch (java.lang.ClassNotFoundException e) {
-	            throw e;
+	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));*/
+	                lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
+	        	return lista;
+	        } catch (Exception error) {
+	            System.out.println(error);
+	            System.out.println(error.getMessage());
+				return lista;
 	        }
 
 	    }
