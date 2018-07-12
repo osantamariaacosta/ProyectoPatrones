@@ -49,10 +49,10 @@ public class Multi_User {
 				+ id + "','" + password + "','" + userName + "','" + userType + "')";
 		
 		try {
-			/*
+			
 			AccesoBD accesoDatos;
-			accesoDatos = Conector.gestConecor();
-			accesoDatos.ejecutarSQL(query);*/
+			accesoDatos = Conector.getConector();
+			accesoDatos.ejecutarSQL(query);
 			return true;
 		}catch (Exception error) {
 			System.out.println(error);
