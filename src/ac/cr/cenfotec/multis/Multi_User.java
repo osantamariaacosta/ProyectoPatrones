@@ -2,10 +2,13 @@
  * 
  */
 package ac.cr.cenfotec.multis;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 
 import ac.cr.cenfotec.clases.User;
+import accesoDatos.AccesoBD;
+import accesoDatos.Conector;
 import ac.cr.cenfotec.clases.Employee;
 
 
@@ -63,13 +66,13 @@ public class Multi_User {
 	        ArrayList<Employee> lista = new ArrayList<>();
 
 	        String query;
-	        query = "'";
+	        query = "SELECT FROM USERS ";
 
 	        try {
 	        	/*
 	            AccesoBD accesoDatos;
 	            accesoDatos = Conector.getConector();
-	            ResultSet rs = accesoDatos.ejecutarSql(query);
+	            ResultSet rs = accesoDatos.ejecutarSQL(query);
 	            while (rs.next()) {
 	                Employee tmpEmpleado = new Employee();
 
@@ -77,8 +80,8 @@ public class Multi_User {
 	                tmpEmpleado.setLastName(rs.getString("lastName"));
 	                tmpEmpleado.setId(rs.getInt("id"));
 	                tmpEmpleado.setCompany(rs.getString("company"));
-	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));*/
-	              	lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
+	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));
+	              	lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); */
 	        	return lista;
 	        } catch (Exception error) {
 	            System.out.println(error);
