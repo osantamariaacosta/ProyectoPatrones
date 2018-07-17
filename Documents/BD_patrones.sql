@@ -17,7 +17,7 @@ Create Table User(
 );
 
 Create Table Company(
-	id_comanpy int IDENTITY(1,1) Not null,
+	id_company int IDENTITY(1,1) Not null,
 	legalNumber int Not null,
 	name varchar(20) Not null,
 	description varchar(100) Not null,
@@ -34,15 +34,52 @@ Create Table Departament(
 	FOREIGN KEY companyId REFERENCES Company(id_company)
 	);
 
-Create table Prcedure(
+Create Table tProcedure(
 	id_procedure int IDENTITY(1,1) Not null,
 	name varchar(20) Not null,
 	companyId int Not null,
 	description varchar(100) Not null,
 	taskList 
 	PRIMARY KEY (id_Procedure),
-	FOREIGN KEY companyId REFERENCES Company (id_company)
+	FOREIGN KEY (companyId) REFERENCES Company (id_company)
 );
+
+Create table Task(
+	id_task int IDENTITY(1,1) Not null,
+	id int Not null,
+	procedureId int Not null,
+	description varchar (100) Not null,
+	state varchar (100) Not null,
+	PRIMARY KEY (id_task),
+	FOREIGN KEY (procedureId) REFERENCES tProcedure(id_procedure)
+	);
+
+Create Table Record(
+	id_record int IDENTITY(1,1) Not null,
+	taskId int Not null,
+	modificationDate date Not null,
+	descriptionChange varchar (100) Not null,
+	PRIMARY KEY (id_record)
+	);
+
+Create Table Authenticator(
+	id_authenticator int IDENTITY (1,1) Not null,
+	userState int Not null,
+	authentictorMessage varchar (100) Not null,
+	authenticated BIT Not null,
+	PRIMARY KEY (id_authenticator)
+	);
+
+Create Table UserAuthenicated(
+	id_userAuthenticated int IDENTITY(1,1) Not null,
+	name varchar (20) Not null,
+	lastName varchar (20) Not null,
+	id int Not null,
+	userName varchar (20) Not null,
+	userType int Not null,
+	PRIMARY KEY (id_userAuthenticated)
+);
+
 
 
 
