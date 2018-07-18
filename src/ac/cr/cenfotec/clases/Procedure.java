@@ -20,12 +20,11 @@ public class Procedure {
 	 * @param description
 	 * @param tasksList
 	 */
-	public Procedure(String name, int id, int companyId, String description, ArrayList<Task> tasksList) {
+	public Procedure(String name, int id, int companyId, String description) {
 		this.name = name;
 		this.id = id;
 		this.companyId = companyId;
 		this.description = description;
-		this.tasksList = tasksList;
 	}
 
 	/**
