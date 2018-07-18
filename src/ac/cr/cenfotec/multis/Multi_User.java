@@ -41,12 +41,12 @@ public class Multi_User {
 		return foundedUser;
 	}
 	
-	public boolean registerEmployee(String name, String lastName, int id, String password, String userName, int userType)
+	public boolean registerUser(String name, String lastName, int id, String password, String userName, int userType, String firm, String company, String departament)
 	{
 		
 		String query;
-		query = "Insert Into Employee (name, lastName, id, password, userName, userType) VALUES ('" + name + "','" + lastName + "','"
-				+ id + "','" + password + "','" + userName + "','" + userType + "')";
+		query = "Insert Into User (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('" + name + "','" + lastName + "','"
+				+ id + "','" + password + "','" + userName + "','" + userType + "','" + firm + "','" + company + "','" + departament + "')";
 		
 		try {
 			
@@ -61,9 +61,9 @@ public class Multi_User {
 		}
 	}
 	
-	 public ArrayList<Employee> listarEmpleado() throws Exception 
+	 public ArrayList<User> listarUser() throws Exception 
 	 {
-	        ArrayList<Employee> lista = new ArrayList<>();
+	        ArrayList<User> lista = new ArrayList<>();
 
 	        String query;
 	        query = "SELECT FROM USERS ";
