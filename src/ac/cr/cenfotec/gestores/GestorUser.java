@@ -3,18 +3,20 @@ package ac.cr.cenfotec.gestores;
 import ac.cr.cenfotec.multis.*;
 import java.util.ArrayList;
 import ac.cr.cenfotec.clases.Employee;
+import ac.cr.cenfotec.clases.User;
+
 import java.sql.SQLException;
 
 public class GestorUser {
 	Multi_User multi = new Multi_User();
 
-	public boolean  registerEmployee(String name, String lastName, int id, String password, String userName, int userType) 
+	public boolean  registerUser(String name, String lastName, int id, String password, String userName, int userType, String firm, String company, String departament) 
 			throws Exception
 	{	
 		boolean isRegistered;
 		try {
 		
-			isRegistered = multi.registerEmployee(name, lastName, id, password, userName, userType);
+			isRegistered = multi.registerUser(name, lastName, id, password, userName, userType, firm, company, departament);
 			return isRegistered;
 			
 		} catch (Exception error) {
@@ -25,10 +27,10 @@ public class GestorUser {
 		}
 	}
 	
-	public ArrayList<Employee> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
+	public ArrayList<User> listarUser() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
 	{
-	    ArrayList<Employee> lista;
-	    lista = multi.listarEmpleado();
+	    ArrayList<User> lista;
+	    lista = multi.listarUser();
 	    return lista;
 	}
 }

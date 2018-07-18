@@ -116,7 +116,7 @@ public class ProyectUI {
 	{
 		out.println("Seleccione una opci\u00f3n");
 		out.println("1.Registrar Organizaci\u00f3n");
-		out.println("2.Registrar un empleado");
+		out.println("2.Registrar un usuario");
 		out.println("3.Registrar un proceso");
 		out.println("4.Registrar tarea");
 		out.println("5.Modificar tarea");
@@ -258,15 +258,18 @@ public class ProyectUI {
 	    }
 	}
 	
-	public static void registerEmployee() throws IOException, Exception{
+	public static void registerUser() throws IOException, Exception{
 		 String name;
 		 String lastName;
 		 int id;
 		 String password; 
 		 String userName;
 		 int userType;
+		 String firm;
+		 String company;
+		 String departament;
 		 
-		 out.println("Digite el nombre del empleado");
+		 out.println("Digite el nombre del usuario");
 		 name = in.readLine();
 		 out.println("Digite el apellido");
 		 lastName = in.readLine();
@@ -278,10 +281,17 @@ public class ProyectUI {
 		 userName = in.readLine();
 		 out.println("Digite el tipo de usuario");
 		 userType = Integer.parseInt(in.readLine());
+		 out.println("Firma del usuario");
+		 firm= in.readLine();
+		 out.println("Digite la compañia del usuario");
+		 company = in.readLine();
+		 out.println("Digite el departamento en el que trabaja el usuario");
+		 departament = in.readLine();
+		 
 		 
 		 GestorUser gestor = new GestorUser();
 	        try {
-	            gestor.registerEmployee(name, lastName, id, password, userName, userType);
+	            gestor.registerUser(name, lastName, id, password, userName, userType, firm, company, departament);
 	        } catch (java.lang.ClassNotFoundException e) {
 	            out.println(e.getMessage());
 	        } catch (SQLException e) {
