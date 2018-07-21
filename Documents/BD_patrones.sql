@@ -70,7 +70,7 @@ Create Table dbo.TAuthenticator(
 	PRIMARY KEY (id_authenticator)
 );
 
-Create Table UserAuthenicated(
+Create Table dbo.TUserAuthenicated(
 	id_userAuthenticated int IDENTITY(1,1) Not null,
 	name varchar (20) Not null,
 	lastName varchar (20) Not null,
