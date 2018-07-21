@@ -2,7 +2,7 @@ Create Database ProyectoPatrones
 
 Use ProyectoPatrones
 
-Create Table User(
+Create Table dbo.TUser (
 	id_user int IDENTITY(1,1) Not null,
 	name varchar (20) Not null,
 	lastName varchar (20) Not null,
@@ -16,7 +16,7 @@ Create Table User(
 	PRIMARY KEY (id_user)
 );
 
-Create Table Company(
+Create Table dbo.TCompany(
 	id_company int IDENTITY(1,1) Not null,
 	legalNumber int Not null,
 	name varchar(20) Not null,

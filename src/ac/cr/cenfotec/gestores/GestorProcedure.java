@@ -1,8 +1,10 @@
 package ac.cr.cenfotec.gestores;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import ac.cr.cenfotec.clases.Procedure;
+import ac.cr.cenfotec.clases.Task;
 import ac.cr.cenfotec.multis.MultiProcedure;
 
 public class GestorProcedure {
@@ -19,19 +21,47 @@ public class GestorProcedure {
 			return stateProcess;
 		
 		} catch (Exception error) {
-			System.out.print("Error located in GestorProcedure");
+			System.out.print("Error located in GestorProcedure. Method: registerProcedure");
 			System.out.println(error);
 			System.out.println(error.getMessage());
 			return stateProcess;
 		}
 	}
 	
-	public boolean updateProcedure (int id) {
-		return true;
+	public Optional<Procedure> searchProcedureById (int id) throws Exception {
+		
+		Procedure found = new Procedure();
+		try 
+		{
+			found = multiProcedure.findProcedureById(id);
+			if (found == null)
+			{
+				return Optional.empty();
+			}
+			
+		} catch (Exception error) {
+			System.out.println("Error located in GestorProcedure. Method: searchProcedureById");
+			System.out.println(error);
+			System.out.print(error.getMessage());
+		}
+		
+		return Optional.of(found);
 	} 
 	
-	public boolean addTask (int procedureId, String description, int state) {
-		return true;
+	public boolean addTask (int id, int procedureId, String description, int state) {
+		boolean stateProcess = false; 
+		try {
+			
+			Task newTask = new Task (id, procedureId, description, state);
+			stateProcess = multiProcedure.addTask(newTask);
+			return stateProcess;
+		
+		} catch (Exception error) {
+			System.out.print("Error located in GestorProcedure. Method: addTask to procedure");
+			System.out.println(error);
+			System.out.println(error.getMessage());
+			return stateProcess;
+		}
 	}
 	
 	public boolean removeTask (int taksId)
