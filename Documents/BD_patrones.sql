@@ -24,27 +24,26 @@ Create Table dbo.TCompany(
 	PRIMARY KEY (id_company)
 );
 
-Create Table Departament(
+Create Table dbo.TDepartament(
 	id_departament int IDENTITY(1,1) Not null,
 	name varchar(20) Not null,
 	id int Not null,
 	description varchar(100) Not null,
 	companyId int Not null,
 	PRIMARY KEY (id_departament),
-	FOREIGN KEY companyId REFERENCES Company(id_company)
-	);
+	FOREIGN KEY (companyId) REFERENCES TCompany(id_company)
+);
 
-Create Table tProcedure(
+Create Table dbo.TProcedure(
 	id_procedure int IDENTITY(1,1) Not null,
 	name varchar(20) Not null,
 	companyId int Not null,
 	description varchar(100) Not null,
-	taskList 
 	PRIMARY KEY (id_Procedure),
-	FOREIGN KEY (companyId) REFERENCES Company (id_company)
+	FOREIGN KEY (companyId) REFERENCES TCompany (id_company)
 );
 
-Create table Task(
+Create table dbo.TTask(
 	id_task int IDENTITY(1,1) Not null,
 	id int Not null,
 	procedureId int Not null,
@@ -52,23 +51,24 @@ Create table Task(
 	state varchar (100) Not null,
 	PRIMARY KEY (id_task),
 	FOREIGN KEY (procedureId) REFERENCES tProcedure(id_procedure)
-	);
+);
 
-Create Table Record(
+Create Table dbo.TRecord(
 	id_record int IDENTITY(1,1) Not null,
 	taskId int Not null,
 	modificationDate date Not null,
 	descriptionChange varchar (100) Not null,
-	PRIMARY KEY (id_record)
-	);
+	PRIMARY KEY (id_record),
+	FOREIGN KEY (taskId) REFERENCES TTask (id_task)
+);
 
-Create Table Authenticator(
+Create Table dbo.TAuthenticator(
 	id_authenticator int IDENTITY (1,1) Not null,
 	userState int Not null,
 	authentictorMessage varchar (100) Not null,
 	authenticated BIT Not null,
 	PRIMARY KEY (id_authenticator)
-	);
+);
 
 Create Table UserAuthenicated(
 	id_userAuthenticated int IDENTITY(1,1) Not null,
