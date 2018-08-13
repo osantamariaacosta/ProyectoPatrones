@@ -66,7 +66,7 @@ public class Multi_User {
 	        ArrayList<User> lista = new ArrayList<>();
 
 	        String query;
-	        query = "SELECT FROM * FROM TUser WHERE userTYPE = '1'";
+	        query = "SELECT * FROM TUser WHERE userTYPE = '1'";
 
 	        try {
 	        	

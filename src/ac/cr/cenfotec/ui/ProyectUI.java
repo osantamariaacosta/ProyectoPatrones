@@ -127,7 +127,8 @@ public class ProyectUI {
 		out.println("5.Modificar tarea");
 		out.println("6.Ver historial de tareas");
 		out.println("7.Listar empleados");
-		out.println("8.Cerrar Sesi\u00f3n");
+		out.println("8.Listar compañias");
+		out.println("9.Cerrar Sesi\u00f3n");
 	}
 	
 	public static void showUserMenu() 
@@ -228,6 +229,9 @@ public class ProyectUI {
 				listarEmpleado(); 
 				break;
 			case 8:
+				listarCompania(); 
+				break;
+			case 9:
 				closeSession(); 
 				break;
 			
@@ -390,6 +394,28 @@ public class ProyectUI {
 			departamentId = lista.get(i).getDepartamentId();
 			
 			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
+		}
+	
+	}
+	
+	public static void listarCompania() throws IOException, Exception{
+		GestorCompany gestor = new GestorCompany();
+		
+		ArrayList<Company> lista;
+		
+		 lista = gestor.listarCompany();
+		
+		int legalNumber; 
+		String name;
+		String description;
+		
+		for(int i = 0; i <lista.size(); i++) {
+			legalNumber = lista.get(i).getLegalNumber();
+			name = lista.get(i).getName();
+			description = lista.get(i).getDescription();
+			
+			
+			out.println("LegalNumber: " + legalNumber + " Name: " + name + " Description: " + description );
 		}
 	
 	}

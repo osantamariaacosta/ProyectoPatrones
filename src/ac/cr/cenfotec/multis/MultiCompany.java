@@ -1,8 +1,12 @@
 package ac.cr.cenfotec.multis;
 
-import ac.cr.cenfotec.clases.User;
+import ac.cr.cenfotec.clases.Company;
 import accesoDatos.AccesoBD;
 import accesoDatos.Conector;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 import ac.cr.cenfotec.clases.Employee;
 
 
@@ -26,6 +30,34 @@ public class MultiCompany {
 			return false;
 		}
 	}
+	
+	 public ArrayList<Company> listarCompania() throws Exception 
+	 {
+	        ArrayList<Company> lista = new ArrayList<>();
+
+	        String query;
+	        query = "SELECT * FROM TCompany";
+
+	        try {
+	        	
+	            AccesoBD accesoDatos;
+	            accesoDatos = Conector.getConector();
+	            ResultSet rs = accesoDatos.ejecutarSQL(query);
+	            while (rs.next()) {
+	                Employee tmpEmpleado = new Employee();
+
+	                tmpCompany.setLeaglNumber(rs.getString("legalNumber"));
+	                tmpCompany.setName(rs.getString("name"));
+	                tmpCompany.setDescription(rs.getInt("description"));
+	               
+	        	return lista;
+	        } catch (Exception error) {
+	            System.out.println(error);
+	            System.out.println(error.getMessage());
+				return lista;
+	        }
+
+	    }
 	
 
 }
