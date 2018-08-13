@@ -52,7 +52,7 @@ Create table dbo.TTask(
 	description varchar (100) Not null,
 	state varchar (100) Not null,
 	PRIMARY KEY (id_task),
-	FOREIGN KEY (procedureId) REFERENCES tProcedure(id_procedure)
+	FOREIGN KEY (name) REFERENCES tProcedure(name)
 );
 
 Create Table dbo.TRecord(

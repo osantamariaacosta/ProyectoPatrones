@@ -27,7 +27,7 @@ public class GestorUser {
 		}
 	}
 	
-	public ArrayList<Employee> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
+	public ArrayList<User> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
 	{
 	    ArrayList<User> lista;
 	    lista = multi.listarUser();
