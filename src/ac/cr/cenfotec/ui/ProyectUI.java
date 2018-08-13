@@ -204,6 +204,7 @@ public class ProyectUI {
 		switch (option) {
 			
 			case 1:
+				registrarCompania();
 				break;
 				
 			case 2: 
@@ -297,6 +298,32 @@ public class ProyectUI {
 	    {
 	        //  Handle any exceptions.
 	    }
+	}
+	
+	public static void registrarCompania() throws IOException, Exception{
+		int legalNumber;
+		String name;
+		String description;
+		
+		out.println("Digite la cedula juridica");
+		legalNumber = Integer.parseInt(in.readLine());
+		
+		out.println("Digite el nombre de la compañia");
+		name = in.readLine();
+		
+		out.println("Digite la desripció de la compañia");
+		description = in.readLine();
+		
+		GestorCompany gestor = new GestorCompany();
+		  try {
+	            gestor.registrarCompaia(legalNumber, name, description);
+	        } catch (java.lang.ClassNotFoundException e) {
+	            out.println(e.getMessage());
+	        } catch (SQLException e) {
+	            out.println(e.getMessage());
+	            out.println(e.getErrorCode());
+	        }
+		
 	}
 	
 	public static void registerUser() throws IOException, Exception{
