@@ -207,7 +207,7 @@ public class ProyectUI {
 				break;
 				
 			case 2: 
-				// registerEmployee();
+				registerUser();
 				break;
 			
 			case 3:
