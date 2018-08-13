@@ -1,1 +1,4 @@
-com.microsoft.sqlserver.jdbc.SQLServerDriver,jdbc:sqlserver://DESKTOP-74PHBO7;databaseName=ProyectoPatrones;integratedsecurity = true
+com.microsoft.sqlserver.jdbc.SQLServerDriver,jdbc:sqlserver://DESKTOP-74PHBO7\\SQLFULL:1433;DatabaseName=ProyectoPatrones;user=olmansan;password=abc123;
+
+
+

@@ -23,7 +23,7 @@ Create Table dbo.TCompany(
 	legalNumber int Not null,
 	name varchar(20) Not null,
 	description varchar(100) Not null,
-	PRIMARY KEY (id_company)
+	PRIMARY KEY (legalNumber)
 );
 
 Create Table dbo.TDepartament(
