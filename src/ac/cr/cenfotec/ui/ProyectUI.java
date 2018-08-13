@@ -347,7 +347,7 @@ public class ProyectUI {
 		
 		ArrayList<Employee> lista;
 		
-		/* lista = gestor.listarEmpleado();
+		 lista = gestor.listarEmpleado();
 		
 		String name; 
 		String lastName;
@@ -363,7 +363,7 @@ public class ProyectUI {
 			departamentId = lista.get(i).getDepartamentId();
 			
 			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
-		}*/
+		}
 	
 	}
 	
