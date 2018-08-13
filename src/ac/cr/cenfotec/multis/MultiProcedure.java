@@ -12,10 +12,6 @@ public class MultiProcedure {
 	
 	public boolean registerProcedure ( Procedure newProcedure ) {
 		
-		//         query = "insert into TPERSONA(NOMBRE, APELLIDO, TELEFONO, CEDULA, DIRECCION) 
-		// values('" + tmpQuerellante.getNombre()+ "' ,'"+ tmpQuerellante.getApellido()+ "' ,
-		//		'"+ tmpQuerellante.getTelefono()+ "' ,'"+ tmpQuerellante.getCedula() + "' ,
-		//		'"+ tmpQuerellante.getDireccion()+"')";
 		
 		String query;
 		query = "INSERT INTO Procedure (name, companyId, description) VALUES ('" + 
@@ -33,7 +29,7 @@ public class MultiProcedure {
 			return true;
 			
 		}catch (Exception error) {
-			System.out.print("Error located in MultiProcedure MultiProcedure");
+			System.out.print("Error located in MultiProcedure");
 			System.out.println(error);
 			System.out.println(error.getMessage());
 			return false;

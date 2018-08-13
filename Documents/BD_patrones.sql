@@ -83,18 +83,6 @@ Create Table dbo.TUserAuthenicated(
 );
 
 -- inicio de las consultas sql 
-	id_company int IDENTITY(1,1) Not null,
-	legalNumber int Not null,
-	name varchar(20) Not null,
-	description varchar(100) Not null,
-	PRIMARY KEY (id_company)
-
-	id_procedure int IDENTITY(1,1) Not null,
-	name varchar(20) Not null,
-	companyId int Not null,
-	description varchar(100) Not null,
-	PRIMARY KEY (id_Procedure),
-	FOREIGN KEY (companyId) REFERENCES TCompany (id_company)
 
 -- COMPANIA
 INSERT INTO TCompany(legalNumber, name, description) VALUES ('31231234', 'TestCompany', 'description');
