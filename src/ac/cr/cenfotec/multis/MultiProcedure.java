@@ -1,17 +1,25 @@
 package ac.cr.cenfotec.multis;
+import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
 import java.sql.ResultSet;
 
 import ac.cr.cenfotec.clases.Procedure;
+import ac.cr.cenfotec.clases.Task;
+import accesoDatos.AccesoBD;
+import accesoDatos.Conector;
 
 public class MultiProcedure {
 	
 	public boolean registerProcedure ( Procedure newProcedure ) {
 		
+		//         query = "insert into TPERSONA(NOMBRE, APELLIDO, TELEFONO, CEDULA, DIRECCION) 
+		// values('" + tmpQuerellante.getNombre()+ "' ,'"+ tmpQuerellante.getApellido()+ "' ,
+		//		'"+ tmpQuerellante.getTelefono()+ "' ,'"+ tmpQuerellante.getCedula() + "' ,
+		//		'"+ tmpQuerellante.getDireccion()+"')";
+		
 		String query;
-		query = "INSERT INTO Procedure (name, id, companyId, description) VALUES ('" + 
+		query = "INSERT INTO Procedure (name, companyId, description) VALUES ('" + 
 				newProcedure.getName() + "','" + 
-				newProcedure.getId() + "','" + 
 				newProcedure.getCompanyId() + "','" + 
 				newProcedure.getDescription() + "')";
 		
@@ -35,11 +43,17 @@ public class MultiProcedure {
 	public Procedure findProcedureById (int id) 
 	{
 		Procedure searchedProcedure = new Procedure ();
+		Boolean ejex = true;
 		String select  =  "SELECT NOMBRE,APELLIDO,TELEFONO,CEDULA,DIRECCION FROM TPERSONA WHERE CEDULA =\" + \"'\" + pID + \"'\"";
 
-		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
+		/* 		this.name = name;
+		this.id = id;
+		this.companyId = companyId;
+		this.description = description;*/
+		
+		try  (ResultSet rs = Conector.getConector().ejecutarSQL(select, ejex)) {
 			while (rs.next()) {
-				searchedProcedure = new Procedure();
+				// searchedProcedure = new Procedure(rs.getString("NOMBRE"), rs.getInt("ID"), rs.getInt("COMPANYID"), rs.getString("DESCRIPTION"));
 			}
 			
 			rs.close();
@@ -59,7 +73,8 @@ public class MultiProcedure {
 		query = "INSERT INTO Procedure (name, id, companyId, description) VALUES ('" + 
 				task.getName() + "','" + 
 				task.getId() + "','" + 
-				task.getCompanyId() + "','" + 
+				task.getProcedureId() + "','" + 
+				task.getState() + "','" + 
 				task.getDescription() + "')";
 		
 		// name, id, companyId, description

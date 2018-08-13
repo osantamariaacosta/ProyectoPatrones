@@ -11,12 +11,12 @@ public class GestorProcedure {
 	
 	MultiProcedure multiProcedure = new MultiProcedure();
 
-	public boolean registerProcedure (String name, int id, int companyId, String description) throws Exception 
+	public boolean registerProcedure (String name, int companyId, String description) throws Exception 
 	{
 		boolean stateProcess = false; 
 		try {
 			
-			Procedure newProcedure = new Procedure (name, id, companyId, description);
+			Procedure newProcedure = new Procedure (name, companyId, description);
 			stateProcess = multiProcedure.registerProcedure(newProcedure);
 			return stateProcess;
 		
@@ -52,8 +52,8 @@ public class GestorProcedure {
 		boolean stateProcess = false; 
 		try {
 			
-			Task newTask = new Task (id, procedureId, description, state);
-			stateProcess = multiProcedure.addTask(newTask);
+			// Task newTask = new Task (id, procedureId, description, state);
+			// stateProcess = multiProcedure.addTask(newTask);
 			return stateProcess;
 		
 		} catch (Exception error) {
