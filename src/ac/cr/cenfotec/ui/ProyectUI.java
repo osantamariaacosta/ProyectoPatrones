@@ -18,6 +18,7 @@ public class ProyectUI {
 	static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	static PrintStream out = System.out;
 	static Authenticator_Manager authManager = new Authenticator_Manager();
+	static GestorProcedure procedManag = new GestorProcedure();
 	
 	
 	public static void main(String[] args) throws Exception
@@ -114,6 +115,10 @@ public class ProyectUI {
 
 	public static void showAdminOptions ()
 	{
+		out.println("----------------------------");
+		out.println("Bienvenido! Seleccione la opción de su preferencia");
+		out.println("----------------------------");
+		
 		out.println("Seleccione una opci\u00f3n");
 		out.println("1.Registrar Organizaci\u00f3n");
 		out.println("2.Registrar un usuario");
@@ -147,6 +152,10 @@ public class ProyectUI {
 		
 	public static void showUserOptions() 
 	{
+		out.println("----------------------------");
+		out.println("Bienvenido! Seleccione la opción de su preferencia");
+		out.println("----------------------------");
+		
 		out.println("Seleccione una opci\u00f3n");
 		out.println("1.Modificar tarea");
 		out.println("2.Ver historial de tareas");
@@ -198,10 +207,11 @@ public class ProyectUI {
 				break;
 				
 			case 2: 
-				registerEmployee();
+				// registerEmployee();
 				break;
 			
 			case 3:
+				registerProcedure();
 				break;
 				
 			case 4:
@@ -228,6 +238,37 @@ public class ProyectUI {
 		return end; 
 	}	
 	
+	
+	public static void registerProcedure() throws IOException 
+	{
+		String name, description;
+		int companyId;
+		boolean registered;
+		try {
+
+			out.println("Ingrese el nombre del nuevo proceso");
+			name = in.readLine();
+			out.println("Ingrese la descripcion del nuevo proceso");
+			description = in.readLine();
+			out.println("Ingrese el identificador de la compania a la que pertenece el proceso");
+			companyId = Integer.parseInt(in.readLine());
+			registered = procedManag.registerProcedure(name, companyId, description);
+			confirmProcess(registered);
+			
+		} catch (Exception error) {
+			System.out.println("Error en el metodo registrar proceso UI");
+			System.out.println(error.getMessage());
+		}
+		
+	}
+	
+	public static void confirmProcess(boolean confirmProcedure) {
+		if (confirmProcedure) {
+			out.println("El proceso se ha realizado correctamente");
+		} else {
+			out.println("Ha ocurrido un error al realizar el proceso");
+		}
+	} 
 
 	public static void closeSession () throws Exception
 	{
@@ -306,7 +347,7 @@ public class ProyectUI {
 		
 		ArrayList<Employee> lista;
 		
-		lista = gestor.listarEmpleado();
+		/* lista = gestor.listarEmpleado();
 		
 		String name; 
 		String lastName;
@@ -322,7 +363,7 @@ public class ProyectUI {
 			departamentId = lista.get(i).getDepartamentId();
 			
 			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
-		}
+		}*/
 	
 	}
 	

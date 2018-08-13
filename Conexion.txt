@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 LAPTOP-CI4UOOAM,ProyectoPatrones,JPozuelo,12345678
+=======
+com.microsoft.sqlserver.jdbc.SQLServerDriver,jdbc:sqlserver://DESKTOP-74PHBO7\\SQLFULL:1433;DatabaseName=ProyectoPatrones;user=olmansan;password=abc123;
+
+
+
+>>>>>>> master

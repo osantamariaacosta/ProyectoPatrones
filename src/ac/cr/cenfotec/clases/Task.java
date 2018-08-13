@@ -4,6 +4,7 @@
 package ac.cr.cenfotec.clases;
 
 public class Task {
+	private String name;
 	private int id;
 	private int procedureId;
 	private String description;
@@ -13,22 +14,48 @@ public class Task {
 		
 	}
 		
+
+	
+	
 	/**
+	 * @param name
 	 * @param id
 	 * @param procedureId
 	 * @param description
 	 * @param state
 	 */
-	public Task(int id, int procedureId, String description, int state) {
+	public Task(String name, int id, int procedureId, String description, int state) {
 		super();
+		this.name = name;
 		this.id = id;
 		this.procedureId = procedureId;
 		this.description = description;
 		this.state = state;
 	}
+
+
+
+
 	/**
-	 * @return the id
+	 * @return the name
 	 */
+	public String getName() {
+		return name;
+	}
+
+
+
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}

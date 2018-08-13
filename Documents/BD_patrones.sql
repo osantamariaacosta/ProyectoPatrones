@@ -1,5 +1,7 @@
 Create Database ProyectoPatrones
 
+
+
 Use ProyectoPatrones
 
 Create Table dbo.TUser (
@@ -40,7 +42,7 @@ Create Table dbo.TProcedure(
 	companyId int Not null,
 	description varchar(100) Not null,
 	PRIMARY KEY (id_Procedure),
-	FOREIGN KEY (companyId) REFERENCES TCompany (id_company)
+	FOREIGN KEY (companyId) REFERENCES TCompany (legalNumber)
 );
 
 Create table dbo.TTask(
@@ -80,9 +82,32 @@ Create Table dbo.TUserAuthenicated(
 	PRIMARY KEY (id_userAuthenticated)
 );
 
+-- inicio de las consultas sql 
+	id_company int IDENTITY(1,1) Not null,
+	legalNumber int Not null,
+	name varchar(20) Not null,
+	description varchar(100) Not null,
+	PRIMARY KEY (id_company)
 
+	id_procedure int IDENTITY(1,1) Not null,
+	name varchar(20) Not null,
+	companyId int Not null,
+	description varchar(100) Not null,
+	PRIMARY KEY (id_Procedure),
+	FOREIGN KEY (companyId) REFERENCES TCompany (id_company)
 
+-- COMPANIA
+INSERT INTO TCompany(legalNumber, name, description) VALUES ('31231234', 'TestCompany', 'description');
+SELECT * FROM TCompany;
 
+DELETE FROM TCompany;
+DROP TABLE TCompany;
+DROP TABLE TProcedure;
+
+-- PROCESOS
+INSERT INTO TProcedure (name, companyId, description) VALUES ('TestProcedure', '31231234', 'description');
+
+SELECT * FROM TProcedure; 
 	
 
 
