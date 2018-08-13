@@ -2,6 +2,7 @@ package ac.cr.cenfotec.multis;
 import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.Procedure;
 import ac.cr.cenfotec.clases.Task;
@@ -36,20 +37,17 @@ public class MultiProcedure {
 		}
 	}
 	
-	public Procedure findProcedureById (int id) 
+	public Procedure findProcedureByName (String name) 
 	{
 		Procedure searchedProcedure = new Procedure ();
 		Boolean ejex = true;
-		String select  =  "SELECT NOMBRE,APELLIDO,TELEFONO,CEDULA,DIRECCION FROM TPERSONA WHERE CEDULA =\" + \"'\" + pID + \"'\"";
 
-		/* 		this.name = name;
-		this.id = id;
-		this.companyId = companyId;
-		this.description = description;*/
+		String select  = "SELECT * FROM TProcedure WHERE name=" + "'" + name + "'";
+
 		
 		try  (ResultSet rs = Conector.getConector().ejecutarSQL(select, ejex)) {
 			while (rs.next()) {
-				// searchedProcedure = new Procedure(rs.getString("NOMBRE"), rs.getInt("ID"), rs.getInt("COMPANYID"), rs.getString("DESCRIPTION"));
+				searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description"));
 			}
 			
 			rs.close();
@@ -62,6 +60,31 @@ public class MultiProcedure {
 		
 		return searchedProcedure; 
 	}
+	
+	public ArrayList<Procedure> getRegisteredProcedures () 
+	{
+		ArrayList<Procedure> procedures = new ArrayList<>(); 
+		Procedure searchedProcedure = new Procedure ();
+		Boolean ejex = true;
+
+		String select  = "SELECT * FROM TProcedure";
+
+		
+		try  (ResultSet rs = Conector.getConector().ejecutarSQL(select, ejex)) {
+			while (rs.next()) {
+				procedures.add(searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description")));
+			}
+			
+			rs.close();
+			return procedures;
+		} catch (Exception error) {
+			System.out.println("Error located in MultiProcedure FinProcedureById");
+			System.out.println(error);
+			System.out.println(error.getMessage());
+			return procedures;
+		}
+		
+	}	
 	
 	public boolean addTask ( Task task ) {
 		

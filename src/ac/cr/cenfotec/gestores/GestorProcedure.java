@@ -28,12 +28,12 @@ public class GestorProcedure {
 		}
 	}
 	
-	public Optional<Procedure> searchProcedureById (int id) throws Exception {
+	public Optional<Procedure> searchProcedureById (String name) throws Exception {
 		
 		Procedure found = new Procedure();
 		try 
 		{
-			found = multiProcedure.findProcedureById(id);
+			found = multiProcedure.findProcedureByName(name);
 			if (found == null)
 			{
 				return Optional.empty();

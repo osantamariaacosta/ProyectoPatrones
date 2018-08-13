@@ -94,8 +94,8 @@ DROP TABLE TProcedure;
 
 -- PROCESOS
 INSERT INTO TProcedure (name, companyId, description) VALUES ('TestProcedure', '31231234', 'description');
-
-SELECT * FROM TProcedure; 
+SELECT * FROM TProcedure ; 
+SELECT * FROM TProcedure WHERE name='TestProcedure' ; 
 	
 
 
