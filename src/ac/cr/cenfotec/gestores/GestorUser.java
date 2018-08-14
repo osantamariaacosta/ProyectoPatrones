@@ -23,7 +23,7 @@ public class GestorUser {
 			System.out.println(error);
 			System.out.println(error.getMessage());
 			isRegistered = false;
-			return false;
+			return true;
 		}
 	}
 	

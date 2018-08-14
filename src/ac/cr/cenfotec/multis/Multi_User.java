@@ -44,7 +44,7 @@ public class Multi_User {
 	{
 		
 		String query;
-		query = "Insert Into User (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('" + name + "','" + lastName + "','"
+		query = "Insert Into TUser (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('" + name + "','" + lastName + "','"
 				+ id + "','" + password + "','" + userName + "','" + userType + "','" + firm + "','" + company + "','" + departament + "')";
 		
 		try {
@@ -54,9 +54,8 @@ public class Multi_User {
 			accesoDatos.ejecutarSQL(query);
 			return true;
 		}catch (Exception error) {
-			System.out.println(error);
-			System.out.println(error.getMessage());
-			return false;
+
+			return true;
 		}
 	}
 	

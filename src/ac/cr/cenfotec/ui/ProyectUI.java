@@ -381,6 +381,7 @@ public class ProyectUI {
 		 String firm;
 		 String company;
 		 String departament;
+		 Boolean confirm;
 		 
 		 out.println("Digite el nombre del usuario");
 		 name = in.readLine();
@@ -404,7 +405,8 @@ public class ProyectUI {
 		 
 		 GestorUser gestor = new GestorUser();
 	        try {
-	            gestor.registerUser(name, lastName, id, password, userName, userType, firm, company, departament);
+	            confirm = gestor.registerUser(name, lastName, id, password, userName, userType, firm, company, departament);
+	            confirmProcess(confirm);
 	        } catch (java.lang.ClassNotFoundException e) {
 	            out.println(e.getMessage());
 	        } catch (SQLException e) {
