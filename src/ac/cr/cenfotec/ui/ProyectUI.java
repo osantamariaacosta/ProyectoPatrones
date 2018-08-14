@@ -223,6 +223,7 @@ public class ProyectUI {
 				break;
 				
 			case 4:
+				registerTask();
 				break;
 				
 			case 5: 
@@ -256,7 +257,7 @@ public class ProyectUI {
 	public static void registerProcedure() throws IOException 
 	{
 		String name, description;
-		int companyId;
+		String companyId;
 		boolean registered;
 		try {
 
@@ -265,7 +266,7 @@ public class ProyectUI {
 			out.println("Ingrese la descripcion del nuevo proceso");
 			description = in.readLine();
 			out.println("Ingrese el identificador de la compania a la que pertenece el proceso");
-			companyId = Integer.parseInt(in.readLine());
+			companyId = in.readLine();
 			registered = procedManag.registerProcedure(name, companyId, description);
 			confirmProcess(registered);
 			
@@ -274,6 +275,35 @@ public class ProyectUI {
 			System.out.println(error.getMessage());
 		}
 		
+	}
+	
+	public static void registerTask() 
+	{
+		String name, procedureName, description;
+		int id, state;
+		
+		try {
+
+			out.println("Ingrese el nombre de la nueva tarea");
+			name = in.readLine();
+			out.println("Ingrese la descripcion de la nueva tarea");
+			description = in.readLine();
+
+			double range = (0 - 100000);     
+			id =  (int) ((Math.random() * range) + 100000);
+			
+			System.out.println(id);
+			
+			state = 0;
+			
+			// registered = procedManag.registerProcedure(name, companyId, description);
+			// confirmProcess(registered);
+			
+		} catch (Exception error) {
+			System.out.println("Error en el metodo registrar tarea UI");
+			System.out.println(error.getMessage());
+		}		
+			
 	}
 	
 	public static void confirmProcess(boolean confirmProcedure) {
@@ -314,12 +344,13 @@ public class ProyectUI {
 	}
 	
 	public static void registrarCompania() throws IOException, Exception{
-		int legalNumber;
+		String legalNumber;
 		String name;
 		String description;
+		Boolean confirm;
 		
 		out.println("Digite la cedula juridica");
-		legalNumber = Integer.parseInt(in.readLine());
+		legalNumber = in.readLine();
 		
 		out.println("Digite el nombre de la compañia");
 		name = in.readLine();
@@ -328,14 +359,15 @@ public class ProyectUI {
 		description = in.readLine();
 		
 		GestorCompany gestor = new GestorCompany();
-		 /* try {
-	            gestor.registrarCompaia(legalNumber, name, description);
+		 try {
+			 confirm =  gestor.registerCompany(legalNumber, name, description);
+			 confirmProcess(confirm);
 	        } catch (java.lang.ClassNotFoundException e) {
 	            out.println(e.getMessage());
 	        } catch (SQLException e) {
 	            out.println(e.getMessage());
 	            out.println(e.getErrorCode());
-	        }*/
+	        }
 		
 	}
 	

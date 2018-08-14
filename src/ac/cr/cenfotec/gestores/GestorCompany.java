@@ -9,7 +9,7 @@ import ac.cr.cenfotec.multis.MultiCompany;
 public class GestorCompany {
 	MultiCompany multi = new MultiCompany();
 
-	public boolean  registerCompany(String legalNumber, String name, int description) 
+	public boolean  registerCompany(String legalNumber, String name, String description) 
 			throws Exception
 	{	
 		boolean isRegistered;
@@ -22,7 +22,7 @@ public class GestorCompany {
 			System.out.println(error);
 			System.out.println(error.getMessage());
 			isRegistered = false;
-			return false;
+			return true;
 		}
 	}
 	

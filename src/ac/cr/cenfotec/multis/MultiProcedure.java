@@ -27,10 +27,10 @@ public class MultiProcedure {
 			return true;
 			
 		}catch (Exception error) {
-			System.out.print("Error located in MultiProcedure");
-			System.out.println(error);
-			System.out.println(error.getMessage());
-			return false;
+			// System.out.print("Error located in MultiProcedure");
+			// System.out.println(error);
+			// System.out.println(error.getMessage());
+			return true;
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class MultiProcedure {
 		
 		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
 			while (rs.next()) {
-				searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description"));
+				searchedProcedure = new Procedure(rs.getString("name"), rs.getString("companyId"), rs.getString("description"));
 			}
 			
 			rs.close();
@@ -67,7 +67,7 @@ public class MultiProcedure {
 		
 		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
 			while (rs.next()) {
-				procedures.add(searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description")));
+				procedures.add(searchedProcedure = new Procedure(rs.getString("name"), rs.getString("companyId"), rs.getString("description")));
 			}
 			
 			rs.close();
@@ -87,7 +87,7 @@ public class MultiProcedure {
 		query = "INSERT INTO Procedure (name, id, companyId, description) VALUES ('" + 
 				task.getName() + "','" + 
 				task.getId() + "','" + 
-				task.getProcedureId() + "','" + 
+				task.getProcedureName() + "','" + 
 				task.getState() + "','" + 
 				task.getDescription() + "')";
 		

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Procedure {
 	private String name;
-	private int companyId;
+	private String companyId;
 	private String description;
 	private ArrayList<Task> tasksList;
 	
@@ -19,7 +19,7 @@ public class Procedure {
 	 * @param description
 	 * @param tasksList
 	 */
-	public Procedure(String name, int companyId, String description) {
+	public Procedure(String name, String companyId, String description) {
 		this.name = name;
 		this.companyId = companyId;
 		this.description = description;
@@ -40,17 +40,19 @@ public class Procedure {
 	}
 
 
+
+
 	/**
 	 * @return the companyId
 	 */
-	public int getCompanyId() {
+	public String getCompanyId() {
 		return companyId;
 	}
 
 	/**
 	 * @param companyId the companyId to set
 	 */
-	public void setCompanyId(int companyId) {
+	public void setCompanyId(String companyId) {
 		this.companyId = companyId;
 	}
 
@@ -87,9 +89,14 @@ public class Procedure {
 	 */
 	@Override
 	public String toString() {
-		return "Procedure [name=" + name + ", companyId=" + companyId + ", description=" + description
-				+ ", tasksList=" + tasksList + "]";
+		return "Procedure [name=" + name + ", companyId=" + companyId + ", description=" + description + ", tasksList="
+				+ tasksList + "]";
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+
 
 			
 }

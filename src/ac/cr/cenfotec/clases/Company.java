@@ -6,7 +6,7 @@ package ac.cr.cenfotec.clases;
 import java.util.ArrayList;
 
 public class Company {
-	private int legalNumber;
+	private String legalNumber;
 	private String name;
 	private String description;
 	private ArrayList<Department> departmentList;
@@ -19,31 +19,32 @@ public class Company {
 	public Company() {		
 	}
 	
-	public Company(int legalNumber, String name, String description) {
+	public Company(String legalNumber, String name, String description) {
 		this.legalNumber = legalNumber;
 		this.name = name;
 		this.description = description;
 	}
 
+
+	public String getName() {
+		return name;
+	}
+
+	
+	
+	
 	/**
 	 * @return the legalNumber
 	 */
-	public int getLegalNumber() {
+	public String getLegalNumber() {
 		return legalNumber;
 	}
 
 	/**
 	 * @param legalNumber the legalNumber to set
 	 */
-	public void setLegalNumber(int legalNumber) {
+	public void setLegalNumber(String legalNumber) {
 		this.legalNumber = legalNumber;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
 	}
 
 	/**

@@ -6,7 +6,7 @@ package ac.cr.cenfotec.clases;
 public class Task {
 	private String name;
 	private int id;
-	private int procedureId;
+	private String procedureName;
 	private String description;
 	private int state;
 	
@@ -14,8 +14,6 @@ public class Task {
 		
 	}
 		
-
-	
 	
 	/**
 	 * @param name
@@ -24,17 +22,14 @@ public class Task {
 	 * @param description
 	 * @param state
 	 */
-	public Task(String name, int id, int procedureId, String description, int state) {
+	public Task(String name, int id, String procedureName, String description, int state) {
 		super();
 		this.name = name;
 		this.id = id;
-		this.procedureId = procedureId;
+		this.procedureName = procedureName;
 		this.description = description;
 		this.state = state;
 	}
-
-
-
 
 	/**
 	 * @return the name
@@ -68,21 +63,32 @@ public class Task {
 	/**
 	 * @return the procedureId
 	 */
-	public int getProcedureId() {
-		return procedureId;
-	}
-	/**
-	 * @param procedureId the procedureId to set
-	 */
-	public void setProcedureId(int procedureId) {
-		this.procedureId = procedureId;
-	}
-	/**
-	 * @return the description
-	 */
+
+	
+	
 	public String getDescription() {
 		return description;
 	}
+	/**
+	 * @return the procedureName
+	 */
+	public String getProcedureName() {
+		return procedureName;
+	}
+
+
+
+
+	/**
+	 * @param procedureName the procedureName to set
+	 */
+	public void setProcedureName(String procedureName) {
+		this.procedureName = procedureName;
+	}
+
+
+
+
 	/**
 	 * @param description the description to set
 	 */
@@ -104,11 +110,17 @@ public class Task {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", procedureId=" + procedureId + ", description=" + description + ", state=" + state
-				+ "]";
-	}	
+		return "Task [name=" + name + ", id=" + id + ", procedureName=" + procedureName + ", description=" + description
+				+ ", state=" + state + "]";
+	}
+
 	
 
 }

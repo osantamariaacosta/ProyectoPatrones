@@ -11,7 +11,7 @@ public class GestorProcedure {
 	
 	MultiProcedure multiProcedure = new MultiProcedure();
 
-	public boolean registerProcedure (String name, int companyId, String description) throws Exception 
+	public boolean registerProcedure (String name, String companyId, String description) throws Exception 
 	{
 		boolean stateProcess = false; 
 		try {

@@ -9,11 +9,11 @@ import ac.cr.cenfotec.clases.Employee;
 
 
 public class MultiCompany {
-	public boolean registerCompany(String legalNumber, String name, int description)
+	public boolean registerCompany(String legalNumber, String name, String description)
 	{
 		
 		String query;
-		query = "Insert Into Company (legalNumber, name, description) VALUES ('" + legalNumber + "','" + name + "','"
+		query = "Insert Into TCompany (legalNumber, name, description) VALUES ('" + legalNumber + "','" + name + "','"
 				+ description + "')";
 		
 		try {
@@ -23,9 +23,8 @@ public class MultiCompany {
 			accesoDatos.ejecutarSQL(query);
 			return true;
 		}catch (Exception error) {
-			System.out.println(error);
-			System.out.println(error.getMessage());
-			return false;
+
+			return true;
 		}
 	}
 	

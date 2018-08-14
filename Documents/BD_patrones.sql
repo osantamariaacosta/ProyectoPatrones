@@ -20,7 +20,7 @@ Create Table dbo.TUser (
 
 Create Table dbo.TCompany(
 	id_company int IDENTITY(1,1) Not null,
-	legalNumber int Not null,
+	legalNumber varchar(20) Not null,
 	name varchar(20) Not null,
 	description varchar(100) Not null,
 	PRIMARY KEY (legalNumber)
@@ -39,7 +39,7 @@ Create Table dbo.TDepartament(
 Create Table dbo.TProcedure(
 	id_procedure int IDENTITY(1,1) Not null,
 	name varchar(20) Not null,
-	companyId int Not null,
+	companyId varchar(20) Not null,
 	description varchar(100) Not null,
 	PRIMARY KEY (id_Procedure),
 	FOREIGN KEY (companyId) REFERENCES TCompany (legalNumber)
