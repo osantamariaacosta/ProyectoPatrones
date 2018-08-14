@@ -1,13 +1,10 @@
 package ac.cr.cenfotec.multis;
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.Procedure;
 import ac.cr.cenfotec.clases.Task;
-import accesoDatos.AccesoBD;
-import accesoDatos.Conector;
+import com.cenfotec.AccesoDatos.*; 
 
 public class MultiProcedure {
 	
@@ -15,7 +12,7 @@ public class MultiProcedure {
 		
 		
 		String query;
-		query = "INSERT INTO Procedure (name, companyId, description) VALUES ('" + 
+		query = "INSERT INTO TProcedure (name, companyId, description) VALUES ('" + 
 				newProcedure.getName() + "','" + 
 				newProcedure.getCompanyId() + "','" + 
 				newProcedure.getDescription() + "')";
@@ -40,12 +37,11 @@ public class MultiProcedure {
 	public Procedure findProcedureByName (String name) 
 	{
 		Procedure searchedProcedure = new Procedure ();
-		Boolean ejex = true;
 
 		String select  = "SELECT * FROM TProcedure WHERE name=" + "'" + name + "'";
 
 		
-		try  (ResultSet rs = Conector.getConector().ejecutarSQL(select, ejex)) {
+		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
 			while (rs.next()) {
 				searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description"));
 			}
@@ -65,12 +61,11 @@ public class MultiProcedure {
 	{
 		ArrayList<Procedure> procedures = new ArrayList<>(); 
 		Procedure searchedProcedure = new Procedure ();
-		Boolean ejex = true;
-
+		
 		String select  = "SELECT * FROM TProcedure";
 
 		
-		try  (ResultSet rs = Conector.getConector().ejecutarSQL(select, ejex)) {
+		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
 			while (rs.next()) {
 				procedures.add(searchedProcedure = new Procedure(rs.getString("name"), rs.getInt("companyId"), rs.getString("description")));
 			}

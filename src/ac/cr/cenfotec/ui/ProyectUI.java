@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import ac.cr.cenfotec.gestores.*;
 import java.sql.SQLException;
+
+import ac.cr.cenfotec.clases.Company;
+import ac.cr.cenfotec.clases.Department;
 import ac.cr.cenfotec.clases.Employee;
 import java.util.ArrayList;
 
@@ -325,14 +328,14 @@ public class ProyectUI {
 		description = in.readLine();
 		
 		GestorCompany gestor = new GestorCompany();
-		  try {
+		 /* try {
 	            gestor.registrarCompaia(legalNumber, name, description);
 	        } catch (java.lang.ClassNotFoundException e) {
 	            out.println(e.getMessage());
 	        } catch (SQLException e) {
 	            out.println(e.getMessage());
 	            out.println(e.getErrorCode());
-	        }
+	        }*/
 		
 	}
 	
@@ -384,7 +387,7 @@ public class ProyectUI {
 		
 		ArrayList<Employee> lista;
 		
-		 lista = gestor.listarEmpleado();
+		 /*lista = gestor.listarEmpleado();
 		
 		String name; 
 		String lastName;
@@ -400,7 +403,7 @@ public class ProyectUI {
 			departamentId = lista.get(i).getDepartamentId();
 			
 			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
-		}
+		}*/
 	
 	}
 	
@@ -409,7 +412,7 @@ public class ProyectUI {
 		
 		ArrayList<Company> lista;
 		
-		 lista = gestor.listarCompany();
+		/* lista = gestor.listarCompany();
 		
 		int legalNumber; 
 		String name;
@@ -422,7 +425,7 @@ public class ProyectUI {
 			
 			
 			out.println("LegalNumber: " + legalNumber + " Name: " + name + " Description: " + description );
-		}
+		}*/
 	
 	}
 	
@@ -433,7 +436,7 @@ public class ProyectUI {
 		 int companyId; 
 		 
 		 
-		 out.println("Digite el nombre del departamento");
+		 /*out.println("Digite el nombre del departamento");
 		 name = in.readLine();
 		 out.println("Digite el id del departamento");
 		 lastName = Integer.parseInt(in.readLine());
@@ -452,14 +455,14 @@ public class ProyectUI {
 	        } catch (SQLException e) {
 	            out.println(e.getMessage());
 	            out.println(e.getErrorCode());
-	        }
+	        }*/
 	        
 		 }
 	
 	public static void listarDepartamento() throws IOException, Exception{
 		
 		
-		ArrayList<Deperament> lista;
+		ArrayList<Department> lista;
 		
 		 lista = gestorDep.listarDepartamento();
 		
