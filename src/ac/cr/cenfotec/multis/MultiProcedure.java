@@ -104,7 +104,28 @@ public class MultiProcedure {
 
 			return true;
 		}
+	}
+	
+	
+	public boolean assingTask (	String idUsuario, int idTaks ) {
+		
+		String query;
+		query = "UPDATE Ttask SET idUsuario= '"+ idUsuario +"' " + "WHERE id=" + idTaks;
+		
+		try {
+			
+			AccesoBD accesoDatos;
+			accesoDatos = Conector.getConector();
+			accesoDatos.ejecutarSQL(query);
+			return true;
+			
+		}catch (Exception error) {
+
+			return true;
+		}
 	}	
+	
+	
 	
 	public ArrayList<Task> getRegisteredTasks () 
 	{

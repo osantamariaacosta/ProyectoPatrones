@@ -132,7 +132,7 @@ public class ProyectUI {
 		out.println("2.Registrar un usuario");
 		out.println("3.Registrar un proceso");
 		out.println("4.Registrar tarea");
-		out.println("5.Modificar tarea");
+		out.println("5.Asignar tarea");
 		out.println("6.Ver historial de tareas");
 		out.println("7.Listar empleados");
 		out.println("8.Listar compañias");
@@ -230,7 +230,8 @@ public class ProyectUI {
 				registerTask();
 				break;
 				
-			case 5: 
+			case 5:
+				assingTask();
 				break;
 			
 			case 6:
@@ -258,6 +259,49 @@ public class ProyectUI {
 		}
 		
 		return end; 
+	}
+	
+	
+	
+	public static void assingTask() 
+	{
+
+		String idUsuario;
+		int id;
+		Boolean confirm;
+		
+		try {
+
+			out.println("----");
+			out.println(" ");
+			out.println("Lista de tareas");
+			listTasks();
+			out.println("");
+			out.println("----");
+			
+			out.println("Ingrese el id de la tarea que desea asignar");
+			id = Integer.parseInt(in.readLine());
+			
+			
+			out.println("----");
+			out.println(" ");
+			out.println("Lista de Empleados");
+			listarEmpleado();
+			out.println("");
+			out.println("----");
+			
+			out.println("Ingrese el la cedula del empleado que desea asignar");
+			idUsuario = in.readLine();
+		
+			
+			confirm = procedManag.assingTask(idUsuario, id);
+			confirmProcess(confirm);
+			
+		} catch (Exception error) {
+			System.out.println("Error en el metodo registrar tarea UI");
+			System.out.println(error.getMessage());
+		}		
+			
 	}	
 	
 	

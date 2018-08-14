@@ -29,6 +29,22 @@ public class GestorProcedure {
 		}
 	}
 	
+	
+	public boolean assingTask (	String idUsuario, int idTaks ) 
+	{
+		boolean stateProcess = false; 
+		try {
+			
+			stateProcess = multiProcedure.assingTask(idUsuario, idTaks);
+			return stateProcess;
+		
+		} catch (Exception error) {
+
+			return stateProcess;
+		}
+	}
+	
+	
 	public Optional<Procedure> searchProcedureById (String name) throws Exception {
 		
 		Procedure found = new Procedure();
