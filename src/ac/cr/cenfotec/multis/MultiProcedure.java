@@ -85,14 +85,12 @@ public class MultiProcedure {
 	public boolean addTask ( Task task ) {
 		
 		String query;
-		query = "INSERT INTO Procedure (name, id, companyId, description) VALUES ('" + 
-				task.getName() + "','" + 
+		query = "INSERT INTO TProcedure (id, name, procedureName,  description, state) VALUES ('" + 
 				task.getId() + "','" + 
+				task.getName() + "','" + 
 				task.getProcedureName() + "','" + 
-				task.getState() + "','" + 
-				task.getDescription() + "')";
-		
-		// name, id, companyId, description
+				task.getDescription() + "','" + 
+				task.getState() + "')";
 		
 		try {
 			
@@ -102,10 +100,8 @@ public class MultiProcedure {
 			return true;
 			
 		}catch (Exception error) {
-			System.out.print("Error located in MultiProcedure addTask");
-			System.out.println(error);
-			System.out.println(error.getMessage());
-			return false;
+
+			return true;
 		}
 	}	
 	

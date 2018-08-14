@@ -6,6 +6,7 @@ package ac.cr.cenfotec.clases;
 public class Task {
 	private String name;
 	private int id;
+	private String idUsuario;
 	private String procedureName;
 	private String description;
 	private int state;
@@ -22,10 +23,11 @@ public class Task {
 	 * @param description
 	 * @param state
 	 */
-	public Task(String name, int id, String procedureName, String description, int state) {
+	public Task(String name, int id, String idUsuario, String procedureName, String description, int state) {
 		super();
 		this.name = name;
 		this.id = id;
+		this.idUsuario = idUsuario;
 		this.procedureName = procedureName;
 		this.description = description;
 		this.state = state;
@@ -39,6 +41,22 @@ public class Task {
 	}
 
 
+
+
+	/**
+	 * @return the idUsuario
+	 */
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+
+
+	/**
+	 * @param idUsuario the idUsuario to set
+	 */
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
 
 	/**
@@ -117,9 +135,10 @@ public class Task {
 	 */
 	@Override
 	public String toString() {
-		return "Task [name=" + name + ", id=" + id + ", procedureName=" + procedureName + ", description=" + description
-				+ ", state=" + state + "]";
+		return "Task [name=" + name + ", id=" + id + ", idUsuario=" + idUsuario + ", procedureName=" + procedureName
+				+ ", description=" + description + ", state=" + state + "]";
 	}
+
 
 	
 

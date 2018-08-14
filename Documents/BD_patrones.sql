@@ -15,7 +15,8 @@ Create Table dbo.TUser (
 	firm varchar(20) null,
 	company varchar(20) null,
 	departament varchar(20), 
-	PRIMARY KEY (id_user)
+	PRIMARY KEY (id_user),
+	FOREIGN KEY (company) REFERENCES TCompany (legalNumber)
 );
 
 Create Table dbo.TCompany(
@@ -42,17 +43,17 @@ Create Table dbo.TProcedure(
 	companyId varchar(20) Not null,
 	description varchar(100) Not null,
 	PRIMARY KEY (id_Procedure),
+	SECONDARY KEY (name), 
 	FOREIGN KEY (companyId) REFERENCES TCompany (legalNumber)
 );
 
 Create table dbo.TTask(
 	id_task int IDENTITY(1,1) Not null,
 	id int Not null,
-	procedureId int Not null,
+	name varchar(20) Not null,
 	description varchar (100) Not null,
 	state varchar (100) Not null,
 	PRIMARY KEY (id_task),
-	FOREIGN KEY (name) REFERENCES tProcedure(name)
 );
 
 Create Table dbo.TRecord(
@@ -95,8 +96,14 @@ DROP TABLE TProcedure;
 -- PROCESOS
 INSERT INTO TProcedure (name, companyId, description) VALUES ('TestProcedure', '31231234', 'description');
 SELECT * FROM TProcedure ; 
-SELECT * FROM TProcedure WHERE name='TestProcedure' ; 
-	
+SELECT * FROM TProcedure WHERE name='TestProcedure'; 
+SELECT * FROM TProcedure WHERE name= 'Testing';
+
+--USUARIOS
+Insert Into TUser (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('Javier','Pozuelo','1234','abc123','jpoz','1','firma','31231234','12345678');
+SELECT * FROM TUser; 	
+
+SELECT * FROM TUser WHERE userType = '1'
 
 
 	

@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 
 import ac.cr.cenfotec.clases.User;
-import com.cenfotec.AccesoDatos.*; 
+import com.cenfotec.AccesoDatos.*;
+
+import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Employee;
 
 
@@ -59,28 +61,29 @@ public class Multi_User {
 		}
 	}
 	
-	 public ArrayList<Employee> listarUser() throws Exception 
+	 public ArrayList<Employee> listarEmpleados() throws Exception 
 	 {
 	        ArrayList<Employee> lista = new ArrayList<>();
+	        Employee tmpEmpleado = new Employee();
 
 	        String query;
-	        query = "SELECT * FROM TUser WHERE userTYPE = '1'";
-
-	        try {
-	        	/*
-	            AccesoBD accesoDatos;
-	            accesoDatos = Conector.getConector();
-	            ResultSet rs = accesoDatos.ejecutarSQL(query);
-	            while (rs.next()) {
-	                Employee tmpEmpleado = new Employee();
-
-	                tmpEmpleado.setName(rs.getString("name"));
-	                tmpEmpleado.setLastName(rs.getString("lastName"));
-	                tmpEmpleado.setId(rs.getInt("id"));
-	                tmpEmpleado.setCompany(rs.getString("company"));
-	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));
-	              	lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
-	            } */
+	        query = "SELECT * FROM TUser WHERE userType = '1'";
+	        	
+    		try  (ResultSet rs = Conector.getConector().getDatosSQL(query)) {
+    			while (rs.next()) {
+    				lista.add(tmpEmpleado = new Employee(
+    						rs.getString("name"),
+    						rs.getString("lastName"),
+    						rs.getInt("id"),
+    						rs.getString("password"),
+    						rs.getString("userName"),
+    						rs.getInt("userType"),
+    						rs.getString("firm"),
+    						rs.getString("company"),
+    						rs.getString("departament")));
+    			}
+	    			
+	    		rs.close();
 	        	return lista;
 	        } catch (Exception error) {
 	            System.out.println(error);

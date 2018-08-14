@@ -27,10 +27,10 @@ public class GestorUser {
 		}
 	}
 	
-	public ArrayList<User> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
+	public ArrayList<Employee> listarEmpleado() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
 	{
-	    ArrayList<User> lista = new ArrayList<>();
-	    // lista = multi.listarUser();
+	    ArrayList<Employee> lista = new ArrayList<>();
+	    lista = multi.listarEmpleados();
 	    return lista;
 	}
 }

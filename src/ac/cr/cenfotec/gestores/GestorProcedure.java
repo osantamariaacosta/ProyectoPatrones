@@ -48,11 +48,11 @@ public class GestorProcedure {
 		return Optional.of(found);
 	} 
 	
-	public boolean addTask (int id, int procedureId, String description, int state) {
+	public boolean addTask (int id, String name, String idUsuario, String nameProcedure, String description, int state) {
 		boolean stateProcess = false; 
 		try {
 			
-			// Task newTask = new Task (id, procedureId, description, state);
+			// Task newTask = new Task ( id, name, idUsuario, nameProcedure, description, state);
 			// stateProcess = multiProcedure.addTask(newTask);
 			return stateProcess;
 		

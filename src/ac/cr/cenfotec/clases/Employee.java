@@ -2,8 +2,8 @@ package ac.cr.cenfotec.clases;
 
 public class Employee extends User {
 	private String firm;
-	private int company;
-	private int departamentId;
+	private String company;
+	private String departamentId;
 
 	public Employee() {
 
@@ -25,8 +25,8 @@ public class Employee extends User {
 			String userName,
 			int userType,
 			String firm,
-			int company,
-			int departamentId) {
+			String company,
+			String departamentId) {
 		super(name, lastName, id, password, userName, userType);
 		this.firm = firm;
 		this.company = company;
@@ -47,31 +47,34 @@ public class Employee extends User {
 		this.firm = firm;
 	}
 
+
+
+
 	/**
 	 * @return the company
 	 */
-	public int getCompany() {
+	public String getCompany() {
 		return company;
 	}
 
 	/**
 	 * @param company the company to set
 	 */
-	public void setCompany(int company) {
+	public void setCompany(String company) {
 		this.company = company;
 	}
 
 	/**
 	 * @return the departamentId
 	 */
-	public int getDepartamentId() {
+	public String getDepartamentId() {
 		return departamentId;
 	}
 
 	/**
 	 * @param departamentId the departamentId to set
 	 */
-	public void setDepartamentId(int departamentId) {
+	public void setDepartamentId(String departamentId) {
 		this.departamentId = departamentId;
 	}
 
@@ -82,7 +85,8 @@ public class Employee extends User {
 	public String toString() {
 		return "Employee [firm=" + firm + ", company=" + company + ", departamentId=" + departamentId + "]";
 	}
-	
+
+
 	
 }
 

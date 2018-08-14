@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Department;
 import ac.cr.cenfotec.clases.Employee;
+import ac.cr.cenfotec.clases.Procedure;
+
 import java.util.ArrayList;
 
 //Manager imports
@@ -265,6 +267,15 @@ public class ProyectUI {
 			name = in.readLine();
 			out.println("Ingrese la descripcion del nuevo proceso");
 			description = in.readLine();
+			
+			out.println("----");
+			out.println(" ");
+			out.println("Lista de companias");
+			out.println("Seleccione una compania de la lista");
+			listarCompania();
+			out.println("");
+			out.println("----");
+			
 			out.println("Ingrese el identificador de la compania a la que pertenece el proceso");
 			companyId = in.readLine();
 			registered = procedManag.registerProcedure(name, companyId, description);
@@ -277,10 +288,36 @@ public class ProyectUI {
 		
 	}
 	
+	public static void listProcedures()
+	{
+		
+		
+		ArrayList<Procedure> lista;
+		
+		String name;
+		String companyId;
+		String description;
+		
+		lista = procedManag.getRegisteredProcedures();
+		
+		for(int i = 0; i <lista.size(); i++) {
+			name = lista.get(i).getName();
+			companyId = lista.get(i).getCompanyId();
+			description = lista.get(i).getDescription();
+			
+			
+			out.println("Nombre del proceso: " + name + " Compania: " + companyId + " Description: " + description );
+		}
+		
+	}
+	
+	
 	public static void registerTask() 
 	{
-		String name, procedureName, description;
+		String name, nameProcedure, description;
+		String idUsuario = " ";
 		int id, state;
+		Boolean confirm;
 		
 		try {
 
@@ -288,6 +325,16 @@ public class ProyectUI {
 			name = in.readLine();
 			out.println("Ingrese la descripcion de la nueva tarea");
 			description = in.readLine();
+			
+			out.println("----");
+			out.println(" ");
+			out.println("Lista de procesos");
+			listProcedures();
+			out.println("");
+			out.println("----");
+			
+			out.println("Ingrese el nombre del proceso al que desea asignar la tarea");
+			nameProcedure = in.readLine();
 
 			double range = (0 - 100000);     
 			id =  (int) ((Math.random() * range) + 100000);
@@ -296,8 +343,8 @@ public class ProyectUI {
 			
 			state = 0;
 			
-			// registered = procedManag.registerProcedure(name, companyId, description);
-			// confirmProcess(registered);
+			confirm = procedManag.addTask(id, name, idUsuario, nameProcedure, description, state);
+			confirmProcess(confirm);
 			
 		} catch (Exception error) {
 			System.out.println("Error en el metodo registrar tarea UI");
@@ -421,13 +468,13 @@ public class ProyectUI {
 		
 		ArrayList<Employee> lista;
 		
-		 /*lista = gestor.listarEmpleado();
+		lista = gestor.listarEmpleado();
 		
 		String name; 
 		String lastName;
 		int id; 
-		int company;
-		int departamentId;
+		String company;
+		String departamentId;
 		
 		for(int i = 0; i <lista.size(); i++) {
 			name = lista.get(i).getName();
@@ -436,8 +483,8 @@ public class ProyectUI {
 			company = lista.get(i).getCompany();
 			departamentId = lista.get(i).getDepartamentId();
 			
-			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + "Compañia: " + company + "Departamento: " + departamentId);
-		}*/
+			out.println("Nombre: " + name + " Apellido: " + lastName + " id: " + id + " Compañia: " + company + "  Departamento: " + departamentId);
+		}
 	
 	}
 	
@@ -458,7 +505,7 @@ public class ProyectUI {
 			description = lista.get(i).getDescription();
 			
 			
-			out.println("LegalNumber: " + legalNumber + " Name: " + name + " Description: " + description );
+			out.println("Numero de Cedula: " + legalNumber + " Nombre: " + name + " Description: " + description );
 		}
 	
 	}
