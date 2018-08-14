@@ -61,9 +61,9 @@ public class Multi_User {
 		}
 	}
 	
-	 public ArrayList<User> listarUser() throws Exception 
+	 public ArrayList<Employee> listarUser() throws Exception 
 	 {
-	        ArrayList<User> lista = new ArrayList<>();
+	        ArrayList<Employee> lista = new ArrayList<>();
 
 	        String query;
 	        query = "SELECT * FROM TUser WHERE userTYPE = '1'";
