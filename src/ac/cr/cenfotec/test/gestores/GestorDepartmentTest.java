@@ -30,7 +30,7 @@ GestorDepartament gestorDepartament;
 	@Test 
 	public void listarDepartamento() throws Exception
 	{
-		ArrayList<Departament> lista = new ArrayList<>();
+		// ArrayList<Departament> lista = new ArrayList<>();
 		// assertTrue(lista.size() != gestorDepartament.listarDepartamento().size());
 	}
 

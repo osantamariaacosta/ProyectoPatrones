@@ -9,7 +9,7 @@ import org.junit.Test;
 import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.gestores.GestorCompany;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 
 class GestorCompanyTest {
 

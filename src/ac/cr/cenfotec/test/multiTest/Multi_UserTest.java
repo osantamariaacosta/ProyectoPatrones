@@ -34,7 +34,7 @@ public class Multi_UserTest {
 	
 	public void listarUsers() throws Exception
 	{
-		ArrayList<User> lista = new ArrayList<>();
+		// ArrayList<User> lista = new ArrayList<>();
 		// assertTrue(lista.size() != multiUser.listarUsers().size());
 	}
 	
