@@ -5,8 +5,10 @@ package ac.cr.cenfotec.managers;
 import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.Authenticator;
+import ac.cr.cenfotec.clases.Employee;
 import ac.cr.cenfotec.clases.User;
 import ac.cr.cenfotec.clases.UserAuthenticated;
+import ac.cr.cenfotec.gestores.GestorUser;
 import ac.cr.cenfotec.multis.Multi_User;
 
 
@@ -16,6 +18,7 @@ public class Authenticator_Manager {
 	private UserAuthenticated userAuthenticated = new UserAuthenticated();
 	private ArrayList<User> usersList = new ArrayList<User>();
 	private Multi_User multiUser = new Multi_User();
+	GestorUser gestor = new GestorUser();
 	
 	
 	public boolean validateCredentials (String userName, String password) throws Exception 
@@ -82,11 +85,16 @@ public class Authenticator_Manager {
 	
 	
 	public ArrayList<User> getUsers () {
-		ArrayList<User> adminList = new ArrayList<User>();
-		User newAdmin = new User("Eduardo","Martinez", 01, "abc123", "eduMar", 0);
-		User newEmployee = new User("Carlos","Garro", 02, "abc123", "carGa", 1);
-		adminList.add(newAdmin);
-		adminList.add(newEmployee);
-		return adminList;
+//		ArrayList<User> adminList = new ArrayList<User>();
+//		User newAdmin = new User("Eduardo","Martinez", 01, "abc123", "eduMar", 0);
+//		User newEmployee = new User("Carlos","Garro", 02, "abc123", "carGa", 1);
+//		adminList.add(newAdmin);
+//		adminList.add(newEmployee);
+//		return adminList;
+		
+		ArrayList<User> lista = new ArrayList<>();
+	    lista = gestor.listarUsers();
+	    return lista;
+		
 	}	
 }

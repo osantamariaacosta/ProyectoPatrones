@@ -33,4 +33,11 @@ public class GestorUser {
 	    lista = multi.listarEmpleados();
 	    return lista;
 	}
+	
+	public ArrayList<User> listarUsers() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
+	{
+	    ArrayList<User> lista = new ArrayList<>();
+	    lista = multi.listarUsers();
+	    return lista;
+	}
 }
