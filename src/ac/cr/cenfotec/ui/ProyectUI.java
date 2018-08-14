@@ -130,7 +130,8 @@ public class ProyectUI {
 		out.println("6.Ver historial de tareas");
 		out.println("7.Listar empleados");
 		out.println("8.Listar compañias");
-		out.println("9.Cerrar Sesi\u00f3n");
+		out.println("9.Listar Departamentos");
+		out.println("10.Cerrar Sesi\u00f3n");
 	}
 	
 	public static void showUserMenu() 
@@ -234,6 +235,9 @@ public class ProyectUI {
 				listarCompania(); 
 				break;
 			case 9:
+				listarDepartamento(); 
+				break;
+			case 10:
 				closeSession(); 
 				break;
 			

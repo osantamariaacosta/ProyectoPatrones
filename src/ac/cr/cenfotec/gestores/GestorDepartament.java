@@ -2,6 +2,8 @@ package ac.cr.cenfotec.gestores;
 
 import ac.cr.cenfotec.multis.MultiDepartament;
 import java.util.ArrayList;
+
+import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Departament;
 
 public class GestorDepartament {
@@ -23,5 +25,12 @@ public class GestorDepartament {
 			isRegistered = false;
 			return false;
 		}
+	}
+	
+	public ArrayList<Departament> listarDepartamento() throws java.lang.ClassNotFoundException, java.sql.SQLException, Exception 
+	{
+	    ArrayList<Departament> lista;
+	    lista = multi.listarDepartamento();
+	    return lista;
 	}
 }
