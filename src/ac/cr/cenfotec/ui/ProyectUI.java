@@ -20,6 +20,8 @@ public class ProyectUI {
 	static Authenticator_Manager authManager = new Authenticator_Manager();
 	static GestorProcedure procedManag = new GestorProcedure();
 	
+	static GestorDepartament gestorDep = new GestorDepartament();
+	
 	
 	public static void main(String[] args) throws Exception
 	{
@@ -449,6 +451,30 @@ public class ProyectUI {
 	        }
 	        
 		 }
+	
+	public static void listarDepartamento() throws IOException, Exception{
+		
+		
+		ArrayList<Deperament> lista;
+		
+		 lista = gestorDep.listarDepartamento();
+		
+		 String name;
+		 int id;
+		 String description;
+		 int companyId; 
+		
+		for(int i = 0; i <lista.size(); i++) {
+			name = lista.get(i).getName();
+			id = lista.get(i).getId();
+			description = lista.get(i).getDescription();
+			companyId = lista.get(i).getCompanyId();
+			
+			
+			out.println("Name: " + name + " Id: " + id + " Description: " + description + "ComapnyId" + companyId );
+		}
+	
+	}
 	
 	
 }

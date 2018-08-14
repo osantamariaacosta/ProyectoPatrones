@@ -9,7 +9,7 @@ import ac.cr.cenfotec.multis.MultiCompany;
 public class GestorCompany {
 	MultiCompany multi = new MultiCompany();
 
-	public boolean  registerUser(String legalNumber, String name, int description) 
+	public boolean  registerCompany(String legalNumber, String name, int description) 
 			throws Exception
 	{	
 		boolean isRegistered;
