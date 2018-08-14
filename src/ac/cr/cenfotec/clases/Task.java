@@ -23,7 +23,7 @@ public class Task {
 	 * @param description
 	 * @param state
 	 */
-	public Task(String name, int id, String idUsuario, String procedureName, String description, int state) {
+	public Task(int id, String name,String idUsuario, String procedureName, String description, int state) {
 		super();
 		this.name = name;
 		this.id = id;

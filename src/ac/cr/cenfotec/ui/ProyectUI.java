@@ -12,6 +12,7 @@ import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Department;
 import ac.cr.cenfotec.clases.Employee;
 import ac.cr.cenfotec.clases.Procedure;
+import ac.cr.cenfotec.clases.Task;
 
 import java.util.ArrayList;
 
@@ -136,7 +137,8 @@ public class ProyectUI {
 		out.println("7.Listar empleados");
 		out.println("8.Listar compañias");
 		out.println("9.Listar Departamentos");
-		out.println("10.Cerrar Sesi\u00f3n");
+		out.println("10.Listar Tareas");
+		out.println("11.Cerrar Sesi\u00f3n");
 	}
 	
 	public static void showUserMenu() 
@@ -244,6 +246,9 @@ public class ProyectUI {
 				listarDepartamento(); 
 				break;
 			case 10:
+				listTasks(); 
+				break;	
+			case 11:
 				closeSession(); 
 				break;
 			
@@ -311,6 +316,49 @@ public class ProyectUI {
 		
 	}
 	
+	
+	public static void listTasks()
+	{
+		
+		
+		ArrayList<Task> lista;
+		
+		int id;
+		String name;
+		String idUsuario;
+		String procedureName;
+		String description;
+		int state;
+		String nameState;
+		String asignado;
+		
+		lista = procedManag.getResgisteredTasks();
+		
+		for(int i = 0; i <lista.size(); i++) {
+			id = lista.get(i).getId();
+			name = lista.get(i).getName();
+			idUsuario = lista.get(i).getIdUsuario();
+			description = lista.get(i).getDescription();
+			state = lista.get(i).getState();
+			
+			if (state == 0)
+			{
+				nameState = "Pendiente";
+			} else {
+				nameState = "Finalizada";
+			}
+			
+			if (idUsuario.equals(" "))
+			{
+				asignado = "Sin asignar";
+			} else {
+				asignado = idUsuario;
+			}
+			
+			out.println("Numero de tarea: " + id + " Nombre: " + name + " Usuario Asignado: " + asignado + " Description: " + description + " Estado: " + nameState );
+		}
+		
+	}	
 	
 	public static void registerTask() 
 	{

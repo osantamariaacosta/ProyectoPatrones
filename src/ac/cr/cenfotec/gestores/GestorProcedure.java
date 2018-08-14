@@ -3,6 +3,7 @@ package ac.cr.cenfotec.gestores;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Procedure;
 import ac.cr.cenfotec.clases.Task;
 import ac.cr.cenfotec.multis.MultiProcedure;
@@ -52,8 +53,8 @@ public class GestorProcedure {
 		boolean stateProcess = false; 
 		try {
 			
-			// Task newTask = new Task ( id, name, idUsuario, nameProcedure, description, state);
-			// stateProcess = multiProcedure.addTask(newTask);
+			Task newTask = new Task ( id, name, idUsuario, nameProcedure, description, state);
+			stateProcess = multiProcedure.addTask(newTask);
 			return stateProcess;
 		
 		} catch (Exception error) {
@@ -71,7 +72,16 @@ public class GestorProcedure {
 	
 	public ArrayList<Procedure> getRegisteredProcedures() 
 	{
-		return new ArrayList<Procedure>();
+	    ArrayList<Procedure> lista;
+	    lista = multiProcedure.getRegisteredProcedures();
+	    return lista;
+	}
+	
+	public ArrayList<Task> getResgisteredTasks() 
+	{
+	    ArrayList<Task> lista;
+	    lista = multiProcedure.getRegisteredTasks();
+	    return lista;
 	}
 	
 	/*

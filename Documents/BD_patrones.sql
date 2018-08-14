@@ -43,7 +43,6 @@ Create Table dbo.TProcedure(
 	companyId varchar(20) Not null,
 	description varchar(100) Not null,
 	PRIMARY KEY (id_Procedure),
-	SECONDARY KEY (name), 
 	FOREIGN KEY (companyId) REFERENCES TCompany (legalNumber)
 );
 
@@ -51,6 +50,8 @@ Create table dbo.TTask(
 	id_task int IDENTITY(1,1) Not null,
 	id int Not null,
 	name varchar(20) Not null,
+	idUsuario varchar(20) null,
+	procedureName varchar(20) Not null,
 	description varchar (100) Not null,
 	state varchar (100) Not null,
 	PRIMARY KEY (id_task),
@@ -98,6 +99,10 @@ INSERT INTO TProcedure (name, companyId, description) VALUES ('TestProcedure', '
 SELECT * FROM TProcedure ; 
 SELECT * FROM TProcedure WHERE name='TestProcedure'; 
 SELECT * FROM TProcedure WHERE name= 'Testing';
+
+-- TASK
+INSERT INTO Ttask (id, name, idUsuario, procedureName,  description, state) VALUES ('0','Revision',' ','TestProcedure','revisar todo','0');
+SELECT * FROM Ttask ; 
 
 --USUARIOS
 Insert Into TUser (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('Javier','Pozuelo','1234','abc123','jpoz','1','firma','31231234','12345678');
