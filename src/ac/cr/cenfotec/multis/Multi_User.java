@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 
 import ac.cr.cenfotec.clases.User;
-import accesoDatos.AccesoBD;
-import accesoDatos.Conector;
+import com.cenfotec.AccesoDatos.*; 
 import ac.cr.cenfotec.clases.Employee;
 
 
@@ -69,7 +68,7 @@ public class Multi_User {
 	        query = "SELECT * FROM TUser WHERE userTYPE = '1'";
 
 	        try {
-	        	
+	        	/*
 	            AccesoBD accesoDatos;
 	            accesoDatos = Conector.getConector();
 	            ResultSet rs = accesoDatos.ejecutarSQL(query);
@@ -82,7 +81,7 @@ public class Multi_User {
 	                tmpEmpleado.setCompany(rs.getString("company"));
 	                tmpEmpleado.setDepartamentId(rs.getInt("departamentId"));
 	              	lista.add(new Employee("Carlos","Garro", 02, "abc123", "carGa", 1, "firma", 01, 02)); 
-	            }
+	            } */
 	        	return lista;
 	        } catch (Exception error) {
 	            System.out.println(error);
@@ -91,6 +90,6 @@ public class Multi_User {
 	        }
 
 		
-	
+	 }
 	
 }

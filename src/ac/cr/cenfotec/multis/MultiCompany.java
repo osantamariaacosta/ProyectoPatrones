@@ -1,9 +1,7 @@
 package ac.cr.cenfotec.multis;
 
 import ac.cr.cenfotec.clases.Company;
-import accesoDatos.AccesoBD;
-import accesoDatos.Conector;
-
+import com.cenfotec.AccesoDatos.*; 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -11,7 +9,7 @@ import ac.cr.cenfotec.clases.Employee;
 
 
 public class MultiCompany {
-	public boolean registrarCompania(String legalNumber, String name, int description)
+	public boolean registerCompany(String legalNumber, String name, int description)
 	{
 		
 		String query;
@@ -40,7 +38,7 @@ public class MultiCompany {
 
 	        try {
 	        	
-	            AccesoBD accesoDatos;
+	           /* AccesoBD accesoDatos;
 	            accesoDatos = Conector.getConector();
 	            ResultSet rs = accesoDatos.ejecutarSQL(query);
 	            while (rs.next()) {
@@ -48,7 +46,7 @@ public class MultiCompany {
 
 	                tmpCompany.setLeaglNumber(rs.getString("legalNumber"));
 	                tmpCompany.setName(rs.getString("name"));
-	                tmpCompany.setDescription(rs.getInt("description"));
+	                tmpCompany.setDescription(rs.getInt("description")); }*/
 	               
 	        	return lista;
 	        } catch (Exception error) {
@@ -57,7 +55,7 @@ public class MultiCompany {
 				return lista;
 	        }
 
-	    }
-	
+	    
+	 }
 
 }

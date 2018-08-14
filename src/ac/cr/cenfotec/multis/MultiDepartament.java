@@ -1,8 +1,10 @@
 package ac.cr.cenfotec.multis;
 
-import accesoDatos.AccesoBD;
-import accesoDatos.Conector;
-import ac.cr.cenfotec.clases.Departament;
+import ac.cr.cenfotec.clases.Department;
+
+import java.util.ArrayList;
+
+import com.cenfotec.AccesoDatos.*; 
 
 
 public class MultiDepartament {
@@ -12,7 +14,7 @@ public class MultiDepartament {
 		
 		String query;
 		query = "Insert Into TDepartament (Name, Id, Description, CompanyId) VALUES ('" + name + "','" + id + "','"
-				+ desription + "','" + companyId + "')";
+				+ description + "','" + companyId + "')";
 		
 		try {
 			
@@ -27,15 +29,15 @@ public class MultiDepartament {
 		}
 	}
 	
-	 public ArrayList<Departament> listarUser() throws Exception 
+	 public ArrayList<Department> listarUser() throws Exception 
 	 {
-	        ArrayList<Departament> lista = new ArrayList<>();
+	        ArrayList<Department> lista = new ArrayList<>();
 
 	        String query;
 	        query = "SELECT * FROM TDepartament";
 
 	        try {
-	        	
+	        	/*
 	            AccesoBD accesoDatos;
 	            accesoDatos = Conector.getConector();
 	            ResultSet rs = accesoDatos.ejecutarSQL(query);
@@ -46,6 +48,7 @@ public class MultiDepartament {
 	                tmpDepartament.setId(rs.getString("lastName"));
 	                tmpDepartament.setDescription(rs.getInt("id"));
 	                tmpDepartament.setCompanyId(rs.getString("company"));
+	            }*/
 	        	return lista;
 	        } catch (Exception error) {
 	            System.out.println(error);
