@@ -420,5 +420,35 @@ public class ProyectUI {
 	
 	}
 	
+	public static void registerDepartament() throws IOException, Exception{
+		 String name;
+		 int id;
+		 String description;
+		 int companyId; 
+		 
+		 
+		 out.println("Digite el nombre del departamento");
+		 name = in.readLine();
+		 out.println("Digite el id del departamento");
+		 lastName = Integer.parseInt(in.readLine());
+		 out.println("Digite una breve descripción el departamento");
+		 description = in.readLine;
+		 out.println("Digite el id de la compañia a la que pertenece el departamento");
+		 companyId = Integer.parseInt(in.readLine());
+		
+	
+		 
+		 GestorDepartament gestor = new GestorDepartament();
+	        try {
+	            gestor.registerDepartament(name, id, description, companyId );
+	        } catch (java.lang.ClassNotFoundException e) {
+	            out.println(e.getMessage());
+	        } catch (SQLException e) {
+	            out.println(e.getMessage());
+	            out.println(e.getErrorCode());
+	        }
+	        
+		 }
+	
 	
 }
