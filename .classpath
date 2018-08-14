@@ -6,5 +6,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/Olman/Documents/Patrones/Jars/junit-4.12.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Olman/Documents/Patrones/ProyectoPatrones/ProyectoPatrones/sqljdbc42.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Olman/Documents/Patrones/ProyectoPatrones/ProyectoPatrones/AccesoDatos.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

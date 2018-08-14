@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ac.cr.cenfotec.clases.Employee;
+import ac.cr.cenfotec.clases.User;
 import ac.cr.cenfotec.gestores.GestorUser;
 
 public class GestorUserTest {
@@ -32,6 +33,15 @@ public class GestorUserTest {
 	{
 		ArrayList<Employee> lista = new ArrayList<>();
 		// assertTrue(lista.size() != gestorUser.listarEmpleado().size());
+	}
+	
+	
+	
+	@Test 
+	public void listarUsers() throws Exception
+	{
+		ArrayList<User> lista = new ArrayList<>();
+		// assertTrue(lista.size() != gestorUser.listarUsers().size());
 	}
 
 }
