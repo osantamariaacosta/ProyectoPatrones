@@ -446,9 +446,9 @@ public class ProyectUI {
 		
 		ArrayList<Company> lista;
 		
-		/* lista = gestor.listarCompany();
+		lista = gestor.listarCompania();
 		
-		int legalNumber; 
+		String legalNumber; 
 		String name;
 		String description;
 		
@@ -459,7 +459,7 @@ public class ProyectUI {
 			
 			
 			out.println("LegalNumber: " + legalNumber + " Name: " + name + " Description: " + description );
-		}*/
+		}
 	
 	}
 	
