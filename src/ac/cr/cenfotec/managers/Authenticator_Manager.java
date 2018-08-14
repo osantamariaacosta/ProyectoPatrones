@@ -2,6 +2,7 @@
  * 
  */
 package ac.cr.cenfotec.managers;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.Authenticator;
@@ -84,7 +85,7 @@ public class Authenticator_Manager {
 	}
 	
 	
-	public ArrayList<User> getUsers () {
+	public ArrayList<User> getUsers () throws ClassNotFoundException, SQLException, Exception {
 //		ArrayList<User> adminList = new ArrayList<User>();
 //		User newAdmin = new User("Eduardo","Martinez", 01, "abc123", "eduMar", 0);
 //		User newEmployee = new User("Carlos","Garro", 02, "abc123", "carGa", 1);

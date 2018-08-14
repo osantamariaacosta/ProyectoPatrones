@@ -2,6 +2,7 @@ package ac.cr.cenfotec.multis;
 
 import ac.cr.cenfotec.clases.Company;
 
+
 import com.cenfotec.AccesoDatos.*; 
 import java.sql.ResultSet;
 import java.util.ArrayList;
