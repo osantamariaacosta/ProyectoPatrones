@@ -23,7 +23,9 @@ GestorProcedure gestorProcedure;
 	@Test
 	public void registerProcedure() throws Exception
 	{
-		// assertTrue(gestorProcedure.registerProcedure("Calificar", "123", "Calificar cursos"));
+		
+		Procedure newProcedure = new Procedure ("Calificar", "123", "Calificar cursos");
+		 assertTrue(gestorProcedure.registerProcedure(newProcedure));
 	}
 	
 	
