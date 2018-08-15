@@ -6,9 +6,10 @@ import java.util.Optional;
 import ac.cr.cenfotec.clases.Company;
 import ac.cr.cenfotec.clases.Procedure;
 import ac.cr.cenfotec.clases.Task;
+import ac.cr.cenfotec.components.GestorAbstract;
 import ac.cr.cenfotec.multis.MultiProcedure;
 
-public class GestorProcedure {
+public class GestorProcedure extends GestorAbstract {
 	
 	MultiProcedure multiProcedure = new MultiProcedure();
 
@@ -97,6 +98,13 @@ public class GestorProcedure {
 	{
 	    ArrayList<Task> lista;
 	    lista = multiProcedure.getRegisteredTasks();
+	    return lista;
+	}
+	
+	public ArrayList<Task> listarTareasAsignadas(int id) 
+	{
+	    ArrayList<Task> lista;
+	    lista = multiProcedure.listarTareasAsignadas(id);
 	    return lista;
 	}
 	

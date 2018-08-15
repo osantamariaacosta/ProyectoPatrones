@@ -158,5 +158,36 @@ public class MultiProcedure {
 	}
 	
 	
+	public ArrayList<Task> listarTareasAsignadas ( int id ) 
+	{
+		ArrayList<Task> tasks = new ArrayList<>(); 
+		Task searchedTask = new Task ();
+		
+		String select  = "SELECT * FROM Ttask WHERE idUsuario=" + "'" + id  + "'";
+
+		
+		try  (ResultSet rs = Conector.getConector().getDatosSQL(select)) {
+			while (rs.next()) {
+				tasks.add(searchedTask = new Task(
+						rs.getInt("id"),
+						 rs.getString("name"),
+						rs.getString("idUsuario"),
+						rs.getString("procedureName"),
+						rs.getString("description"),
+						rs.getInt("state")));
+			}
+			
+			rs.close();
+			return tasks;
+		} catch (Exception error) {
+			System.out.println("Error located in MultiProcedure getRegisteredTasks");
+			System.out.println(error);
+			System.out.println(error.getMessage());
+			return tasks;
+		}
+		
+	}	
+	
+	
 	
 }

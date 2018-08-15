@@ -4,10 +4,10 @@ import ac.cr.cenfotec.multis.MultiDepartament;
 
 import java.util.ArrayList;
 import ac.cr.cenfotec.clases.Department;
-
+import ac.cr.cenfotec.components.GestorAbstract;
 import ac.cr.cenfotec.clases.Company;
 
-public class GestorDepartament {
+public class GestorDepartament extends GestorAbstract{
 
 	MultiDepartament multi = new MultiDepartament();
 

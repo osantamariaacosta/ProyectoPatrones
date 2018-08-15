@@ -3,10 +3,11 @@ package ac.cr.cenfotec.gestores;
 import java.util.ArrayList;
 
 import ac.cr.cenfotec.clases.Company;
+import ac.cr.cenfotec.components.GestorAbstract;
 import ac.cr.cenfotec.multis.MultiCompany;
 
 
-public class GestorCompany {
+public class GestorCompany extends GestorAbstract {
 	MultiCompany multi = new MultiCompany();
 
 	public boolean  registerCompany(String legalNumber, String name, String description) 

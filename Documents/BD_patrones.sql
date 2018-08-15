@@ -104,9 +104,24 @@ SELECT * FROM TProcedure WHERE name= 'Testing';
 INSERT INTO Ttask (id, name, idUsuario, procedureName,  description, state) VALUES ('0','Revision',' ','TestProcedure','revisar todo','0');
 SELECT * FROM Ttask ; 
 
+SELECT * FROM Ttask WHERE idUsuario= '116290381'; 
+
+UPDATE Ttask SET idUsuario= ' ' WHERE id= '0';
+
+
+
 --USUARIOS
+//		User newAdmin = new User("Eduardo","Martinez", 01, "abc123", "eduMar", 0);
+//		User newEmployee = new User("Carlos","Garro", 02, "abc123", "carGa", 1);
+
+-- INSERT ADMIN
+Insert Into TUser (name, lastName, id, password, userName, userType) VALUES ('Eduardo','Martinez','1234','abc123','eduMar','0');
+
+
 Insert Into TUser (name, lastName, id, password, userName, userType, firm, company, departament) VALUES ('Javier','Pozuelo','1234','abc123','jpoz','1','firma','31231234','12345678');
-SELECT * FROM TUser; 	
+SELECT * FROM TUser ; 
+
+DELETE FROM TUser WHERE name = '"Eduardo"';	
 
 SELECT * FROM TUser WHERE userType = '1'
 

@@ -4,10 +4,11 @@ import ac.cr.cenfotec.multis.*;
 import java.util.ArrayList;
 import ac.cr.cenfotec.clases.Employee;
 import ac.cr.cenfotec.clases.User;
+import ac.cr.cenfotec.components.GestorAbstract;
 
 import java.sql.SQLException;
 
-public class GestorUser {
+public class GestorUser extends GestorAbstract {
 	Multi_User multi = new Multi_User();
 
 	public boolean  registerUser(String name, String lastName, int id, String password, String userName, int userType, String firm, String company, String departament) 

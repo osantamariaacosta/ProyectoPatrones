@@ -2,6 +2,7 @@ package ac.cr.cenfotec.ui;
 
 // UI imports 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -13,11 +14,14 @@ import ac.cr.cenfotec.clases.Department;
 import ac.cr.cenfotec.clases.Employee;
 import ac.cr.cenfotec.clases.Procedure;
 import ac.cr.cenfotec.clases.Task;
+// import ac.cr.cenfotec.components.FactoryGestor;
+// import ac.cr.cenfotec.components.GestorAbstract;
 
 import java.util.ArrayList;
 
 //Manager imports
 import ac.cr.cenfotec.managers.Authenticator_Manager;
+import enums.GestorEnum;
 
 public class ProyectUI {
 
@@ -25,6 +29,8 @@ public class ProyectUI {
 	static PrintStream out = System.out;
 	static Authenticator_Manager authManager = new Authenticator_Manager();
 	static GestorProcedure procedManag = new GestorProcedure();
+	
+	// static GestorAbstract procedManag = FactoryGestor.factoryGestor(GestorEnum.PROCEDURE);
 	
 	static GestorDepartament gestorDep = new GestorDepartament();
 	
@@ -168,7 +174,7 @@ public class ProyectUI {
 		out.println("----------------------------");
 		
 		out.println("Seleccione una opci\u00f3n");
-		out.println("1.Modificar tarea");
+		out.println("1.Listar tareas asignadas");
 		out.println("2.Ver historial de tareas");
 		out.println("3.Cerrar Sesi\u00f3n");		
 	}
@@ -190,6 +196,8 @@ public class ProyectUI {
 		switch (option) {
 			
 			case 1:
+				
+				modificarTareaAsignada();
 				break;
 				
 			case 2: 
@@ -207,6 +215,62 @@ public class ProyectUI {
 		return end; 
 	}
 	
+	public static void modificarTareaAsignada() {
+
+		out.println("----");
+		out.println(" ");
+		out.println("Lista de tareas asignadas");
+		listarTareaAsignada();
+		out.println("");
+		out.println("----");
+		
+		
+	}
+	
+	
+	public static void listarTareaAsignada()
+	{
+		
+		
+		ArrayList<Task> lista;
+		
+		int id;
+		String name;
+		String idUsuario;
+		String procedureName;
+		String description;
+		int state;
+		String nameState;
+		String asignado;
+		
+		lista = procedManag.listarTareasAsignadas(authManager.getUserAutenticated().getId());
+		
+		for(int i = 0; i <lista.size(); i++) {
+			id = lista.get(i).getId();
+			name = lista.get(i).getName();
+			idUsuario = lista.get(i).getIdUsuario();
+			description = lista.get(i).getDescription();
+			state = lista.get(i).getState();
+			
+			if (state == 0)
+			{
+				nameState = "Pendiente";
+			} else {
+				nameState = "Finalizada";
+			}
+			
+			if (idUsuario.equals(" "))
+			{
+				asignado = "Sin asignar";
+			} else {
+				asignado = idUsuario;
+			}
+			
+			out.println("Numero de tarea: " + id + " Nombre: " + name + " Usuario Asignado: " + asignado + " Description: " + description + " Estado: " + nameState );
+		}
+		
+		
+	}
 
 	public static boolean excuteAdminOption (int option) throws Exception
 	{
